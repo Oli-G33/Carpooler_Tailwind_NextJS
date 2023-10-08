@@ -21,13 +21,15 @@ const SuccessPage = () => {
       </svg>
 
       {/* Success Message */}
-      <h1 className="mb-4 text-3xl font-semibold text-center text-green-500">
-        Your Ride Has Been Requested!
-      </h1>
-      <p className="mb-6 text-lg text-center text-gray-700">
-        Your ride request has been submitted. You will receive an email
-        notification once the driver confirms the ride details.
-      </p>
+      <div className="px-10">
+        <h1 className="mb-4 text-3xl font-semibold text-center text-green-500">
+          Your Ride Has Been Requested!
+        </h1>
+        <p className="mb-6 text-lg text-center text-gray-700">
+          Your ride request has been submitted. You will receive an email
+          notification once the driver confirms the ride details.
+        </p>
+      </div>
 
       {/* Back to Home Button */}
       <a
