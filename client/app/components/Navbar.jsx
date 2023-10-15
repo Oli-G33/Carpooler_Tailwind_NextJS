@@ -1,14 +1,22 @@
 'use client';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { Avatar, AvatarGroup, AvatarIcon } from '@nextui-org/avatar';
+import { Avatar } from '@nextui-org/avatar';
+import autoAnimate from '@formkit/auto-animate';
 
 export default function Navbar() {
   const [showUserMenu, setShowUserMenu] = useState(false);
+  const [showTopbarMenu, setShowTopbarMenu] = useState(false);
+
+  const parent = useRef(null);
   const userMenuButtonRef = useRef(null);
 
   const toggleShowUserMenu = () => {
     setShowUserMenu(!showUserMenu);
+  };
+
+  const toggleShowTopbarMenu = () => {
+    setShowTopbarMenu(!showTopbarMenu);
   };
 
   useEffect(() => {
@@ -54,12 +62,17 @@ export default function Navbar() {
               data-dropdown-placement="bottom"
               onClick={toggleShowUserMenu}
               ref={userMenuButtonRef}
+              style={{ position: 'relative', width: '40px', height: '40px' }}
             >
               <span className="sr-only">Open user menu</span>
-              <img
-                className="w-10 h-10 border rounded-full hover:ring-4 hover:ring-gray-400 dark:hover:ring-gray-800"
+              <Image
+                className="w-10 h-10 rounded-full ring-4 ring-gray-200 hover:ring-blue-200 dark:hover:ring-gray-800"
                 src="https://ik.imagekit.io/nk6wikwqs/giphy__1__HzAk8kLlm.webp?updatedAt=1691870981943';"
                 alt="user photo"
+                fill
+                style={{
+                  objectFit: 'cover'
+                }}
               />
             </button>
             {/* <!-- Dropdown menu --> */}
@@ -103,8 +116,7 @@ export default function Navbar() {
               data-collapse-toggle="navbar-user"
               type="button"
               className="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-              aria-controls="navbar-user"
-              aria-expanded="false"
+              onClick={toggleShowTopbarMenu}
             >
               <span className="sr-only">Open main menu</span>
               <svg
@@ -124,6 +136,58 @@ export default function Navbar() {
               </svg>
             </button>
           </div>
+
+          {showTopbarMenu && (
+            <div
+              className={`absolute left-0 w-full mt-0 text-base list-none transition-transform ease-in-out bg-white divide-y divide-gray-100 shadow top-full md:hidden dark:bg-gray-700 dark:divide-gray-600 transform scale-y-100 ${
+                showTopbarMenu ? 'scale-y-100' : 'scale-y-0'
+              }`}
+            >
+              <ul className="flex flex-col p-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                  <a
+                    href="/"
+                    className="block py-2 pl-3 pr-4 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                    aria-current="page"
+                  >
+                    Book
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="myRides"
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  >
+                    MyRides
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="dashboard"
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                  >
+                    Dashboard
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="terms"
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover.bg-gray-100 md:hover.bg-transparent md:hover.text-blue-700 md:p-0 dark.text-white md:dark:hover.text-blue-500 dark:hover.bg-gray-700 dark:hover.text-white md:dark:hover.bg-transparent dark.border-gray-700"
+                  >
+                    Terms
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="block py-2 pl-3 pr-4 text-gray-900 rounded hover.bg-gray-100 md:hover.bg-transparent md:hover.text-blue-700 md:p-0 dark.text-white md:dark:hover.text-blue-500 dark:hover.bg-gray-700 dark:hover.text-white md:dark:hover.bg-transparent dark.border-gray-700"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+          )}
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-user"

@@ -1,9 +1,7 @@
-'use client';
 import React from 'react';
 import { toast } from 'sonner';
-import '../globals.css';
 
-const DatePicker = () => {
+const DatePicker = ({ selectedDate, onDateSelect }) => {
   // Function to check if a given date is a weekend (Saturday or Sunday)
   const isWeekend = date => {
     const dayOfWeek = date.getDay();
@@ -21,6 +19,9 @@ const DatePicker = () => {
         duration: 5000,
         cancel: true
       });
+    } else {
+      // If a valid date is selected, update the state in the parent component
+      onDateSelect(selectedDate);
     }
   };
 

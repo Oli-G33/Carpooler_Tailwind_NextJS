@@ -17,9 +17,9 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #357abd; /* Customize the color when hovered */
+  background: #357abd;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #ffffff; /* Customize the track color */
+  background: #ffffff;
 }

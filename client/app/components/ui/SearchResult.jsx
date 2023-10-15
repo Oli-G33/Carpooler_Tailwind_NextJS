@@ -32,7 +32,7 @@ const SearchResult = ({
       </div>
       <button
         onClick={handleRequest}
-        className="px-4 mt-2 text-white bg-blue-500 rounded-full w-14 md:py-2 md:px-0 md:mt-0 md:w-18 lg:w-28 hover:bg-blue-800"
+        className="px-4 mt-2 text-white duration-150 bg-blue-500 rounded-full w-14 md:py-2 md:px-0 md:mt-0 md:w-18 lg:w-28 hover:bg-blue-800"
       >
         <span className="text-xs lg:text-base">Book</span>
       </button>

@@ -32,8 +32,8 @@ const searchResultsData = [
 ];
 
 const BookingPage = () => {
-  const [showResults, setShowResults] = useState(false); // State to toggle search results visibility
-
+  const [showResults, setShowResults] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
   const handleSearch = () => {
     // Perform the search (You can fetch data or process it here)
     // For this example, we'll just toggle the results visibility
@@ -48,7 +48,9 @@ const BookingPage = () => {
     parent.current && autoAnimate(parent.current, { duration: 350 });
   }, [parent]);
 
-  const date = '18/09/2023';
+  const handleDateSelect = date => {
+    setSelectedDate(date);
+  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen mt-16 mb-1 bg-gray-100">
@@ -62,9 +64,12 @@ const BookingPage = () => {
           <div className="flex flex-col items-center justify-center p-8 text-center bg-white shadow-lg md:h-64 rounded-xl">
             {/* Date Picker (Takes half width on md screens and above) */}
             <h2 className="mb-6 text-xl font-semibold">Choose a Date</h2>
-            <DatePicker />
+            <DatePicker
+              selectedDate={selectedDate}
+              onDateSelect={handleDateSelect}
+            />
             <button
-              className="px-4 py-2 mx-auto mt-6 font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-800"
+              className="px-4 py-2 mx-auto mt-6 font-semibold text-white transition duration-300 ease-in-out delay-150 bg-blue-500 rounded-full hover:-translate-y-1 hover:scale-110 hover:bg-blue-800"
               onClick={handleSearch}
             >
               See availability
@@ -75,7 +80,7 @@ const BookingPage = () => {
             className="max-w-screen-xl mt-4 bg-white shadow-lg md:mt-0 rounded-xl"
           >
             <h2 className="p-4 text-base font-semibold text-center md:text-xl ">
-              Search Results for {date}
+              Search Results for
             </h2>
 
             {showResults && (
