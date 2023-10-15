@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.0",
+    "@nextui-org/avatar": "^2.0.21",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "flowbite": "^1.8.1",
@@ -18,7 +19,9 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-transition-group": "^4.4.5",
     "sonner": "^1.0.3",
+    "styled-components": "^6.0.9",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7"
   },

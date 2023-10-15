@@ -18,8 +18,7 @@ export default function RootLayout({ children }) {
         {<Navbar />}
         {<Toaster richColors />}
         {children}
-        <div className="flex justify-center">
-          {' '}
+        <div className="flex justify-center bg-gray-100 ">
           <Copyright />
         </div>
       </body>

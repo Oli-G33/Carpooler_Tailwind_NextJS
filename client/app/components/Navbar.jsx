@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import { Avatar, AvatarGroup, AvatarIcon } from '@nextui-org/avatar';
 
 export default function Navbar() {
   const [showUserMenu, setShowUserMenu] = useState(false);
@@ -32,7 +33,7 @@ export default function Navbar() {
       <nav className="fixed top-0 w-full bg-white border-b border-gray-200 shadow-md dark:bg-gray-900">
         <div className="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto ">
           <a href="/" className="flex items-center">
-            <Image
+            <Avatar
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-8 mr-3"
               alt="Flowbite Logo"
@@ -67,14 +68,14 @@ export default function Navbar() {
                 <div
                   className="absolute my-4 mt-64 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow right-2 dark:bg-gray-700 dark:divide-gray-600"
                   id="user-dropdown"
-                  style={{ zIndex: 50 }}
+                  style={{ zIndex: 999 }}
                 >
                   <div className="px-4 py-3">
                     <span className="block text-sm text-gray-900 dark:text-white">
-                      Bonnie Green
+                      Oliver Garcia
                     </span>
                     <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
-                      name@flowbite.com
+                      oliver.garcia@thomann.de
                     </span>
                   </div>
                   <ul className="py-2" aria-labelledby="user-menu-button">

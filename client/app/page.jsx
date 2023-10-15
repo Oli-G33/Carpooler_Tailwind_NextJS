@@ -1,7 +1,8 @@
 'use client';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import DatePicker from './components/DatePicker';
 import SearchResult from './components/ui/SearchResult';
+import autoAnimate from '@formkit/auto-animate';
 
 const searchResultsData = [
   {
@@ -37,22 +38,30 @@ const BookingPage = () => {
     // Perform the search (You can fetch data or process it here)
     // For this example, we'll just toggle the results visibility
     setShowResults(true);
+    setShow(!show);
   };
 
-  const date = '17/09/2023';
+  const [show, setShow] = useState(false);
+  const parent = useRef(null);
+
+  useEffect(() => {
+    parent.current && autoAnimate(parent.current, { duration: 350 });
+  }, [parent]);
+
+  const date = '18/09/2023';
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen mt-16 mb-1 bg-gray-100">
-      <header className="w-auto py-4 mt-6 text-center text-black bg-white shadow-lg min-w-max rounded-xl headers">
+      {/* <header className="w-auto py-4 mt-6 text-center text-black bg-white shadow-lg min-w-max rounded-xl headers">
         <h1 className="px-8 text-lg font-semibold md:text-2xl lg:text-3xl">
           Request a Ride
         </h1>
-      </header>
-      <main className="container flex-grow p-4 mx-auto mt-8">
-        <div className="flex flex-col justify-center max-w-screen-xl p-8 mx-auto text-center bg-white shadow-lg lg:flex-row rounded-xl">
-          {/* Date Picker (Takes half width on lg screens and above) */}
-          <div className="lg:w-1/2">
-            <h2 className="mb-6 font-semibold text-m">Choose a Date</h2>
+      </header> */}
+      <main className="container flex-grow p-4 mx-auto mt-8 mb-0">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div className="flex flex-col items-center justify-center p-8 text-center bg-white shadow-lg md:h-64 rounded-xl">
+            {/* Date Picker (Takes half width on md screens and above) */}
+            <h2 className="mb-6 text-xl font-semibold">Choose a Date</h2>
             <DatePicker />
             <button
               className="px-4 py-2 mx-auto mt-6 font-semibold text-white bg-blue-500 rounded-full hover:bg-blue-800"
@@ -61,20 +70,22 @@ const BookingPage = () => {
               See availability
             </button>
           </div>
+          <div
+            ref={parent}
+            className="max-w-screen-xl mt-4 bg-white shadow-lg md:mt-0 rounded-xl"
+          >
+            <h2 className="p-4 text-base font-semibold text-center md:text-xl ">
+              Search Results for {date}
+            </h2>
 
-          {/* Search Results Section (Takes the right half on lg screens and above) */}
-          {showResults && (
-            <div className="mt-8 overflow-y-auto lg:w-1/2 lg:pl-8 max-h-80">
-              {' '}
-              {/* Adjust max-h-80 as needed */}
-              <h2 className="mb-4 text-xl font-semibold">
-                Search Results for {date}
-              </h2>
-              {searchResultsData.map((result, index) => (
-                <SearchResult key={index} {...result} />
-              ))}
-            </div>
-          )}
+            {showResults && (
+              <div className="py-4 mt-2 overflow-y-auto md:p-8 max-h-96 custom-scrollbar ">
+                {searchResultsData.map((result, index) => (
+                  <SearchResult key={index} {...result} />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </main>
     </div>

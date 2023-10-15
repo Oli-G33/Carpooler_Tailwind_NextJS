@@ -5,17 +5,17 @@ const currentYear = new Date().getFullYear();
 
 const Copyright = () => {
   return (
-    <div className="fixed bottom-0 flex justify-center text-center">
+    <div className="bottom-0 flex justify-center mt-6 text-center">
       <span>
-        Copyright ©{' '}
+        Copyright ©
         <Link
           className="hover:underline"
           href="https://oliver-garcia.onrender.com/"
           target="_blank"
         >
-          Oliver Garcia
-        </Link>{' '}
-        {currentYear}{' '}
+          Oliver Garcia{' '}
+        </Link>
+        {currentYear}
       </span>
     </div>
   );
