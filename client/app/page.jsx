@@ -18,15 +18,51 @@ const searchResultsData = [
     driverShift: 'Evening Shift'
   },
   {
-    driverName: 'John Doe',
-    driverAvatar: 'avatar-url-1.jpg',
-    availableSeats: 3,
+    driverName: 'Bob Johnson',
+    driverAvatar: 'avatar-url-3.jpg',
+    availableSeats: 4,
+    driverShift: 'Afternoon Shift'
+  },
+  {
+    driverName: 'Emma Davis',
+    driverAvatar: 'avatar-url-4.jpg',
+    availableSeats: 1,
+    driverShift: 'Night Shift'
+  },
+  {
+    driverName: 'Michael Brown',
+    driverAvatar: 'avatar-url-5.jpg',
+    availableSeats: 2,
     driverShift: 'Morning Shift'
   },
   {
-    driverName: 'Alice Smith',
-    driverAvatar: 'avatar-url-2.jpg',
+    driverName: 'Sophia Wilson',
+    driverAvatar: 'avatar-url-6.jpg',
+    availableSeats: 3,
+    driverShift: 'Evening Shift'
+  },
+  {
+    driverName: 'William White',
+    driverAvatar: 'avatar-url-7.jpg',
+    availableSeats: 4,
+    driverShift: 'Afternoon Shift'
+  },
+  {
+    driverName: 'Olivia Lee',
+    driverAvatar: 'avatar-url-8.jpg',
+    availableSeats: 1,
+    driverShift: 'Night Shift'
+  },
+  {
+    driverName: 'James Taylor',
+    driverAvatar: 'avatar-url-9.jpg',
     availableSeats: 2,
+    driverShift: 'Morning Shift'
+  },
+  {
+    driverName: 'Mia Martin',
+    driverAvatar: 'avatar-url-10.jpg',
+    availableSeats: 3,
     driverShift: 'Evening Shift'
   }
 ];
