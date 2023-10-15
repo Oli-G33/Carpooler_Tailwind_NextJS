@@ -41,6 +41,16 @@ const BookingPage = () => {
     setShow(!show);
   };
 
+  const originalDate = new Date(selectedDate);
+  const day = originalDate.getDate();
+  const month = originalDate.getMonth() + 1;
+  const year = originalDate.getFullYear();
+
+  const formattedDay = day.toString().padStart(2, '0');
+  const formattedMonth = month.toString().padStart(2, '0');
+
+  const formattedDate = `${formattedDay}/${formattedMonth}/${year}`;
+
   const [show, setShow] = useState(false);
   const parent = useRef(null);
 
@@ -80,7 +90,9 @@ const BookingPage = () => {
             className="max-w-screen-xl mt-4 bg-white shadow-lg md:mt-0 rounded-xl"
           >
             <h2 className="p-4 text-base font-semibold text-center md:text-xl ">
-              Search Results for
+              {selectedDate
+                ? `Search Results for ${formattedDate}`
+                : 'No date selected'}
             </h2>
 
             {showResults && (

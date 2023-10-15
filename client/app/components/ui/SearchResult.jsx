@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 const SearchResult = ({
@@ -13,11 +14,19 @@ const SearchResult = ({
 
   return (
     <div className="flex items-center p-4 mx-4 my-2 bg-white shadow-custom rounded-xl">
-      <div className="mr-4">
-        <img
+      <div
+        className="mr-4"
+        style={{ position: 'relative', width: '50px', height: '50px' }}
+      >
+        <Image
           src="https://ik.imagekit.io/nk6wikwqs/giphy__1__HzAk8kLlm.webp?updatedAt=1691870981943';"
           alt={`${driverName}'s Avatar`}
-          className="w-10 h-10 border rounded-full md:w-14 md:h-14"
+          className="w-10 h-10 border rounded-full ring-2 md:w-14 md:h-14"
+          fill
+          sizes="(max-width: 640px) 50px, (max-width: 768px) 100px, 200px"
+          style={{
+            objectFit: 'cover'
+          }}
         />
       </div>
 
