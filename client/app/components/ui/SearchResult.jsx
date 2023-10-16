@@ -19,7 +19,7 @@ const SearchResult = ({
         style={{ position: 'relative', width: '50px', height: '50px' }}
       >
         <Image
-          src="https://ik.imagekit.io/nk6wikwqs/giphy__1__HzAk8kLlm.webp?updatedAt=1691870981943';"
+          src={driverAvatar}
           alt={`${driverName}'s Avatar`}
           className="w-10 h-10 border rounded-full ring-2 md:w-14 md:h-14"
           fill
