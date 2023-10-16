@@ -7,61 +7,61 @@ import autoAnimate from '@formkit/auto-animate';
 const searchResultsData = [
   {
     driverName: 'John Doe',
-    driverAvatar: 'avatar-url-1.jpg',
+    driverAvatar: 'https://source.unsplash.com/C8Ta0gwPbQg',
     availableSeats: 3,
     driverShift: 'Morning Shift'
   },
   {
     driverName: 'Alice Smith',
-    driverAvatar: 'avatar-url-2.jpg',
+    driverAvatar: 'https://source.unsplash.com/mEZ3PoFGs_k',
     availableSeats: 2,
     driverShift: 'Evening Shift'
   },
   {
     driverName: 'Bob Johnson',
-    driverAvatar: 'avatar-url-3.jpg',
+    driverAvatar: 'https://source.unsplash.com/jzz_3jWMzHA',
     availableSeats: 4,
     driverShift: 'Afternoon Shift'
   },
   {
     driverName: 'Emma Davis',
-    driverAvatar: 'avatar-url-4.jpg',
+    driverAvatar: 'https://source.unsplash.com/Rm83bxp19RE',
     availableSeats: 1,
     driverShift: 'Night Shift'
   },
   {
     driverName: 'Michael Brown',
-    driverAvatar: 'avatar-url-5.jpg',
+    driverAvatar: 'https://source.unsplash.com/rDEOVtE7vOs',
     availableSeats: 2,
     driverShift: 'Morning Shift'
   },
   {
     driverName: 'Sophia Wilson',
-    driverAvatar: 'avatar-url-6.jpg',
+    driverAvatar: 'https://source.unsplash.com/a-woman-standing-in-front-of-a-window-with-her-arms-crossed-caOuGgyfu8s',
     availableSeats: 3,
     driverShift: 'Evening Shift'
   },
   {
     driverName: 'William White',
-    driverAvatar: 'avatar-url-7.jpg',
+    driverAvatar: 'https://source.unsplash.com/iFgRcqHznqg',
     availableSeats: 4,
     driverShift: 'Afternoon Shift'
   },
   {
     driverName: 'Olivia Lee',
-    driverAvatar: 'avatar-url-8.jpg',
+    driverAvatar: 'https://source.unsplash.com/tTdC88_6a_I',
     availableSeats: 1,
     driverShift: 'Night Shift'
   },
   {
     driverName: 'James Taylor',
-    driverAvatar: 'avatar-url-9.jpg',
+    driverAvatar: 'https://source.unsplash.com/QEgHL8NN7nM',
     availableSeats: 2,
     driverShift: 'Morning Shift'
   },
   {
     driverName: 'Mia Martin',
-    driverAvatar: 'avatar-url-10.jpg',
+    driverAvatar: 'https://source.unsplash.com/NVRdBAwV2Qo',
     availableSeats: 3,
     driverShift: 'Evening Shift'
   }
