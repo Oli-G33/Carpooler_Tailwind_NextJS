@@ -37,7 +37,8 @@ const searchResultsData = [
   },
   {
     driverName: 'Sophia Wilson',
-    driverAvatar: 'https://source.unsplash.com/a-woman-standing-in-front-of-a-window-with-her-arms-crossed-caOuGgyfu8s',
+    driverAvatar:
+      'https://source.unsplash.com/a-woman-standing-in-front-of-a-window-with-her-arms-crossed-caOuGgyfu8s',
     availableSeats: 3,
     driverShift: 'Evening Shift'
   },
@@ -123,7 +124,7 @@ const BookingPage = () => {
           </div>
           <div
             ref={parent}
-            className="max-w-screen-xl mt-4 bg-white shadow-lg md:mt-0 rounded-xl"
+            className="max-w-screen-xl pb-2 mt-4 bg-white shadow-lg md:mt-0 rounded-xl"
           >
             <h2 className="p-4 text-base font-semibold text-center border-b md:text-xl">
               {selectedDate
@@ -132,7 +133,7 @@ const BookingPage = () => {
             </h2>
 
             {showResults && (
-              <div className="py-4 mt-2 overflow-y-auto md:p-8 max-h-96 custom-scrollbar ">
+              <div className="mt-2 overflow-y-auto md:p-8 max-h-96 custom-scrollbar ">
                 {searchResultsData.map((result, index) => (
                   <SearchResult key={index} {...result} />
                 ))}

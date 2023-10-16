@@ -2,13 +2,11 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { Avatar } from '@nextui-org/avatar';
-import autoAnimate from '@formkit/auto-animate';
 
 export default function Navbar() {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showTopbarMenu, setShowTopbarMenu] = useState(false);
 
-  const parent = useRef(null);
   const userMenuButtonRef = useRef(null);
 
   const toggleShowUserMenu = () => {
@@ -79,7 +77,7 @@ export default function Navbar() {
             {showUserMenu && (
               <>
                 <div
-                  className="absolute my-4 mt-64 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow right-2 dark:bg-gray-700 dark:divide-gray-600"
+                  className="absolute my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow mt-60 right-2 dark:bg-gray-700 dark:divide-gray-600"
                   id="user-dropdown"
                   style={{ zIndex: 999 }}
                 >
@@ -139,8 +137,8 @@ export default function Navbar() {
 
           {showTopbarMenu && (
             <div
-              className={`absolute left-0 w-full mt-0 text-base list-none transition-transform ease-in-out bg-white divide-y divide-gray-100 shadow top-full md:hidden dark:bg-gray-700 dark:divide-gray-600 transform scale-y-100 ${
-                showTopbarMenu ? 'scale-y-100' : 'scale-y-0'
+              className={`absolute left-0 w-full text-base list-none transition-max-h ease-in-out bg-white divide-y divide-gray-100 shadow top-full md:hidden dark:bg-gray-700 dark:divide-gray-600 ${
+                showTopbarMenu ? 'max-h-96' : 'max-h-0'
               }`}
             >
               <ul className="flex flex-col p-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
