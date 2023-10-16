@@ -12,6 +12,8 @@ const SearchResult = ({
     console.log(`Requesting a ride with ${driverName}`);
   };
 
+  console.log(driverAvatar)
+
   return (
     <div className="flex items-center p-4 mx-4 my-2 bg-white shadow-custom rounded-xl">
       <div
