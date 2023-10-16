@@ -125,7 +125,7 @@ const BookingPage = () => {
             ref={parent}
             className="max-w-screen-xl mt-4 bg-white shadow-lg md:mt-0 rounded-xl"
           >
-            <h2 className="p-4 text-base font-semibold text-center md:text-xl ">
+            <h2 className="p-4 text-base font-semibold text-center border-b md:text-xl">
               {selectedDate
                 ? `Search Results for ${formattedDate}`
                 : 'No date selected'}
