@@ -93,6 +93,7 @@ export default function Navbar() {
                 src="https://ik.imagekit.io/nk6wikwqs/giphy__1__HzAk8kLlm.webp?updatedAt=1691870981943';"
                 alt="user photo"
                 fill
+                sizes="(max-width: 640px) 50px, (max-width: 768px) 100px, 200px"
                 style={{
                   objectFit: 'cover'
                 }}
@@ -225,6 +226,7 @@ export default function Navbar() {
               </motion.div>
             )}
           </AnimatePresence>
+
           <div
             className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
             id="navbar-user"

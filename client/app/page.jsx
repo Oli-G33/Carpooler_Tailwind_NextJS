@@ -75,7 +75,6 @@ const BookingPage = () => {
     // Perform the search (You can fetch data or process it here)
     // For this example, we'll just toggle the results visibility
     setShowResults(true);
-    setShow(!show);
   };
 
   const originalDate = new Date(selectedDate);
@@ -88,7 +87,6 @@ const BookingPage = () => {
 
   const formattedDate = `${formattedDay}/${formattedMonth}/${year}`;
 
-  const [show, setShow] = useState(false);
   const parent = useRef(null);
 
   useEffect(() => {
@@ -110,7 +108,9 @@ const BookingPage = () => {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="flex flex-col items-center justify-center p-8 text-center bg-white shadow-lg md:h-64 rounded-xl">
             {/* Date Picker (Takes half width on md screens and above) */}
-            <h2 className="mb-6 text-xl font-semibold">Choose a Date</h2>
+            <h2 className="mb-6 font-sans text-xl font-semibold text-blue-900">
+              Choose a Date
+            </h2>
             <DatePicker
               selectedDate={selectedDate}
               onDateSelect={handleDateSelect}
@@ -124,16 +124,16 @@ const BookingPage = () => {
           </div>
           <div
             ref={parent}
-            className="max-w-screen-xl pb-2 mt-4 bg-white shadow-lg md:mt-0 rounded-xl"
+            className="max-w-screen-xl mt-4 bg-white shadow-lg md:mt-0 rounded-xl"
           >
-            <h2 className="p-4 text-base font-semibold text-center border-b md:text-xl">
+            <h2 className="p-4 font-sans text-base font-semibold text-center text-blue-900 border-b md:text-xl">
               {selectedDate
                 ? `Search Results for ${formattedDate}`
                 : 'No date selected'}
             </h2>
 
             {showResults && (
-              <div className="mt-2 overflow-y-auto md:p-8 max-h-96 custom-scrollbar ">
+              <div className="mt-2 overflow-y-auto md:p-8 max-h-96 custom-scrollbar">
                 {searchResultsData.map((result, index) => (
                   <SearchResult key={index} {...result} />
                 ))}
