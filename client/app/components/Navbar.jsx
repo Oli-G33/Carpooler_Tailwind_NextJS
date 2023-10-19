@@ -183,7 +183,7 @@ export default function Navbar() {
                   <li>
                     <a
                       href="/"
-                      className="block py-2 pl-3 pr-4 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                      className="block py-2 pl-3 pr-4 rounded focus:text-red-600 focus:bg-blue-100 md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
                       aria-current="page"
                     >
                       Book
@@ -192,7 +192,7 @@ export default function Navbar() {
                   <li>
                     <a
                       href="myRides"
-                      className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                      className="block py-2 pl-3 pr-4 text-gray-900 rounded focus:bg-blue-100 focus:text-red-600 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                     >
                       MyRides
                     </a>
@@ -200,7 +200,7 @@ export default function Navbar() {
                   <li>
                     <a
                       href="dashboard"
-                      className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                      className="block py-2 pl-3 pr-4 text-gray-900 rounded focus:bg-blue-100 focus:text-red-600 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                     >
                       Dashboard
                     </a>
@@ -208,15 +208,15 @@ export default function Navbar() {
                   <li>
                     <a
                       href="terms"
-                      className="block py-2 pl-3 pr-4 text-gray-900 rounded hover.bg-gray-100 md:hover.bg-transparent md:hover.text-blue-700 md:p-0 dark.text-white md:dark:hover.text-blue-500 dark:hover.bg-gray-700 dark:hover.text-white md:dark:hover.bg-transparent dark.border-gray-700"
+                      className="focus:bg-blue-100 focus:text-red-600 block py-2 pl-3 pr-4 text-gray-900 rounded hover.bg-gray-100 md:hover.bg-transparent md:hover.text-blue-700 md:p-0 dark.text-white md:dark:hover.text-blue-500 dark:hover.bg-gray-700 dark:hover.text-white md:dark:hover.bg-transparent dark.border-gray-700"
                     >
                       Terms
                     </a>
                   </li>
                   <li>
                     <a
-                      href="#"
-                      className="block py-2 pl-3 pr-4 text-gray-900 rounded hover.bg-gray-100 md:hover.bg-transparent md:hover.text-blue-700 md:p-0 dark.text-white md:dark:hover.text-blue-500 dark:hover.bg-gray-700 dark:hover.text-white md:dark:hover.bg-transparent dark.border-gray-700"
+                      href="contact"
+                      className="focus:bg-blue-100 focus:text-red-600 block py-2 pl-3 pr-4 text-gray-900 rounded hover.bg-gray-100 md:hover.bg-transparent md:hover.text-blue-700 md:p-0 dark.text-white md:dark:hover.text-blue-500 dark:hover.bg-gray-700 dark:hover.text-white md:dark:hover.bg-transparent dark.border-gray-700"
                     >
                       Contact
                     </a>
@@ -265,7 +265,7 @@ export default function Navbar() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="contact"
                   className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 >
                   Contact

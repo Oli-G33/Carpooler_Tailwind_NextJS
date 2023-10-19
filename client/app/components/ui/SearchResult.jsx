@@ -39,12 +39,14 @@ const SearchResult = ({
         </p>
         <p className="text-xs font-light lg:text-base">Shift: {driverShift}</p>
       </div>
-      <button
-        onClick={handleRequest}
-        className="px-4 text-white duration-150 bg-blue-500 rounded-full w-14 md:py-0 md:px-0 md:mt-0 md:w-18 lg:w-24 hover:bg-blue-800"
-      >
-        <span className="text-xs lg:text-base">Book</span>
-      </button>
+      <a href="success">
+        <button
+          onClick={handleRequest}
+          className="px-4 text-white duration-150 bg-blue-500 rounded-full w-14 md:py-0 md:px-0 md:mt-0 md:w-18 lg:w-24 hover:bg-blue-800"
+        >
+          <span className="text-xs lg:text-base">Book</span>
+        </button>
+      </a>
     </div>
   );
 };
