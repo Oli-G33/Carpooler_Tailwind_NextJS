@@ -71,7 +71,7 @@ export default function Navbar() {
               width="50"
               height="50"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center text-2xl font-semibold text-blue-900 whitespace-nowrap dark:text-white">
               Carpooler
             </span>
           </a>
@@ -174,7 +174,7 @@ export default function Navbar() {
           {showTopbarMenu && (
             <div
               ref={topbarMenuRef}
-              className={`scale-in-ver-top absolute left-0 w-full text-base list-none  bg-white shadow top-full md:hidden dark:bg-gray-700 dark:divide-gray-600`}
+              className={`scale-in-ver-top absolute left-0 w-full text-base list-none bg-white shadow top-full md:hidden dark:bg-gray-700 dark:divide-gray-600`}
             >
               <ul className="flex flex-col p-4 font-medium bg-white border border-gray-100 rounded-lg md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
