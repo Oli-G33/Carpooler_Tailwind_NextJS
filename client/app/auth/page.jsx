@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Login from '../components/auth/Login';
 import Register from '../components/auth/Register';
 
-const page = () => {
+const Page = () => {
   const [isLogin, setIsLogin] = useState(true);
 
   return (
@@ -19,4 +19,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

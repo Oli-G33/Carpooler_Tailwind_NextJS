@@ -58,7 +58,7 @@ const Login = ({ setIsLogin }) => {
           </form>
           <div className="text-center">
             <small>
-              Don't have an account?{' '}
+              Don&apos;t have an account?{' '}
               <a
                 className="text-blue-700 hover:cursor-pointer hover:underline"
                 onClick={handleSwitchToRegistration}
