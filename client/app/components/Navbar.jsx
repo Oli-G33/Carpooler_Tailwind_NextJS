@@ -3,10 +3,17 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { Avatar } from '@nextui-org/avatar';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useUser } from '../state/UserContext';
+import { useTheme } from '../state/ThemeContext';
 
 export default function Navbar() {
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [showTopbarMenu, setShowTopbarMenu] = useState(false);
+  const [topbarMenuAnimation, setTopbarMenuAnimation] =
+    useState('scale-in-ver-top');
+
+  const { user, setUser } = useUser();
+  const { theme, setTheme } = useTheme();
 
   const userMenuButtonRef = useRef(null);
   const topbarButtonRef = useRef(null);
@@ -174,7 +181,7 @@ export default function Navbar() {
           {showTopbarMenu && (
             <div
               ref={topbarMenuRef}
-              className={`scale-in-ver-top absolute left-0 w-full text-base list-none bg-white shadow top-full md:hidden dark:bg-gray-700 dark:divide-gray-600`}
+              className={`${topbarMenuAnimation} absolute left-0 w-full text-base list-none bg-white shadow top-full md:hidden dark:bg-gray-700 dark:divide-gray-600`}
             >
               <ul className="flex flex-col p-4 font-medium bg-white border border-gray-100 rounded-lg md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>

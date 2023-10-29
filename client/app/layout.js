@@ -3,6 +3,8 @@ import './globals.css';
 import { Inter } from 'next/font/google';
 import Copyright from './components/Copyright';
 import { Toaster } from 'sonner';
+import { UserProvider } from './state/UserContext';
+import { ThemeProvider } from './state/ThemeContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,12 +17,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {<Navbar />}
-        {<Toaster richColors />}
-        {children}
-        <div className="flex justify-center bg-gray-100 ">
-          <Copyright />
-        </div>
+        <UserProvider>
+          <ThemeProvider>
+            {<Navbar />}
+            {<Toaster richColors />}
+            {children}
+            <div className="flex justify-center bg-gray-100 ">
+              <Copyright />
+            </div>
+          </ThemeProvider>
+        </UserProvider>
       </body>
     </html>
   );
