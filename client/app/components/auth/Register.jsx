@@ -28,7 +28,7 @@ const Register = ({ setIsLogin }) => {
   return (
     <div>
       <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <div className="w-full max-w-md p-8 bg-white shadow-lg h-2/3 rounded-xl">
+        <div className="w-full max-w-md p-8 bg-white shadow-lg h-2/3 rounded-xl min-h-[450px]">
           <h2 className="mb-6 text-2xl font-semibold text-center text-blue-800">
             Registration
           </h2>
@@ -190,34 +190,60 @@ const Register = ({ setIsLogin }) => {
                   onClick={prevStep}
                   className="px-4 py-1 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
                 >
-                  Previous
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                    />
+                  </svg>
                 </button>
               )}
               {step < 4 ? (
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="px-4 py-1 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
+                  className="px-4 py-1 ml-auto font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
                 >
-                  Next
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                  </svg>
                 </button>
               ) : (
                 <button
                   type="submit"
                   className="px-4 py-1 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
                 >
-                  Register
+                  Sign up!
                 </button>
               )}
             </div>
             <div className="mt-3 text-center">
               <small>
-                Not registered?{' '}
+                Already registered?{' '}
                 <a
                   className="text-blue-700 hover:cursor-pointer hover:underline"
                   onClick={handleSwitchToLogin}
                 >
-                  Sign up!
+                  Log in!
                 </a>
               </small>
             </div>
