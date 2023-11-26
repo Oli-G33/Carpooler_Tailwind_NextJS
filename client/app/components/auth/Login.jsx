@@ -1,17 +1,27 @@
 'use client';
 // import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
-import { loginUser } from '@/app/services/auth';
+import { useUser } from '@/app/state/UserContext';
 
-const Login = ({ setIsLogin }) => {
+const Login = ({ setIsLogin, onLogin }) => {
   // const { register, handleSubmit } = useForm();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const onSubmit = e => {
-    e.preventDefault();
-    loginUser({ email, password });
-  };
+  const { handleLogin } = useUser();
+
+  // const onSubmit = async e => {
+  //   e.preventDefault();
+
+  //   try {
+  //     await handleLogin({ email, password });
+
+  //     router.push('/');
+  //   } catch (error) {
+  //     console.error('Login failed:', error);
+  //   }
+  // };
 
   const handleSwitchToRegistration = () => {
     setIsLogin(false);
@@ -38,7 +48,7 @@ const Login = ({ setIsLogin }) => {
               />
             </svg>
           </h2>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onLogin}>
             <div className="mb-4">
               <label
                 htmlFor="email"
