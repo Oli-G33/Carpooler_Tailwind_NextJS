@@ -2,6 +2,7 @@
 // import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 import { useUser } from '@/app/state/UserContext';
+import { useRouter } from 'next/navigation';
 
 const Login = ({ setIsLogin, onLogin }) => {
   // const { register, handleSubmit } = useForm();
@@ -11,17 +12,18 @@ const Login = ({ setIsLogin, onLogin }) => {
 
   const { handleLogin } = useUser();
 
-  // const onSubmit = async e => {
-  //   e.preventDefault();
+  const router = useRouter();
 
-  //   try {
-  //     await handleLogin({ email, password });
+  const onSubmit = async e => {
+    e.preventDefault();
 
-  //     router.push('/');
-  //   } catch (error) {
-  //     console.error('Login failed:', error);
-  //   }
-  // };
+    try {
+      await handleLogin({ email, password });
+      router.push('/');
+    } catch (error) {
+      console.error('Login failed:', error);
+    }
+  };
 
   const handleSwitchToRegistration = () => {
     setIsLogin(false);
@@ -48,7 +50,7 @@ const Login = ({ setIsLogin, onLogin }) => {
               />
             </svg>
           </h2>
-          <form onSubmit={onLogin}>
+          <form onSubmit={onSubmit}>
             <div className="mb-4">
               <label
                 htmlFor="email"

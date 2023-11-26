@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import DatePicker from './components/DatePicker';
 import SearchResult from './components/ui/SearchResult';
 import autoAnimate from '@formkit/auto-animate';
+import { useUser } from './state/UserContext';
 
 const searchResultsData = [
   {
@@ -76,6 +77,8 @@ const BookingPage = () => {
     // For this example, we'll just toggle the results visibility
     setShowResults(true);
   };
+
+  const { user, setUser } = useUser();
 
   const originalDate = new Date(selectedDate);
   const day = originalDate.getDate();

@@ -17,6 +17,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        {/* <Provider store={store}> */}
+        {/* <PersistGate loading={null} persistor={persistor}> */}
         <UserProvider>
           <ThemeProvider>
             {<Navbar />}

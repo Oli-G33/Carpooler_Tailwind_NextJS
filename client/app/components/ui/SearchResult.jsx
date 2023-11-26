@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
+import { useRouter } from 'next/navigation';
+import { useUser } from '@/app/state/UserContext';
 
 const SearchResult = ({
   driverName,
@@ -7,9 +9,13 @@ const SearchResult = ({
   availableSeats,
   driverShift
 }) => {
+  const router = useRouter();
+  const { user } = useUser();
+
   const handleRequest = () => {
     // Add the request handling logic here
     console.log(`Requesting a ride with ${driverName}`);
+    router.push(user ? '/success' : '/auth');
   };
 
   return (
@@ -39,14 +45,12 @@ const SearchResult = ({
         </p>
         <p className="text-xs font-light lg:text-base">Shift: {driverShift}</p>
       </div>
-      <a href="success">
-        <button
-          onClick={handleRequest}
-          className="px-4 text-white duration-150 bg-blue-500 rounded-full w-14 md:py-0 md:px-0 md:mt-0 md:w-18 lg:w-24 hover:bg-blue-800"
-        >
-          <span className="text-xs lg:text-base">Book</span>
-        </button>
-      </a>
+      <button
+        onClick={handleRequest}
+        className="px-4 text-white duration-150 bg-blue-500 rounded-full w-14 md:py-0 md:px-0 md:mt-0 md:w-18 lg:w-24 hover:bg-blue-800"
+      >
+        <span className="text-xs lg:text-base">Book</span>
+      </button>
     </div>
   );
 };

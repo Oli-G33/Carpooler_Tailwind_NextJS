@@ -12,7 +12,7 @@ export default function Navbar() {
   const [topbarMenuAnimation, setTopbarMenuAnimation] =
     useState('scale-in-ver-top');
 
-  const { user, setUser } = useUser();
+  const { user } = useUser();
   const { theme, setTheme } = useTheme();
 
   const userMenuButtonRef = useRef(null);
@@ -82,30 +82,34 @@ export default function Navbar() {
               Carpooler
             </span>
           </a>
+
           <div className="relative flex items-center md:order-2">
-            <button
-              type="button"
-              className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-              id="user-menu-button"
-              aria-expanded={showUserMenu ? 'true' : 'false'}
-              data-dropdown-toggle="user-dropdown"
-              data-dropdown-placement="bottom"
-              onClick={toggleShowUserMenu}
-              ref={userMenuButtonRef}
-              style={{ position: 'relative', width: '40px', height: '40px' }}
-            >
-              <span className="sr-only">Open user menu</span>
-              <Image
-                className="w-10 h-10 rounded-full ring-4 ring-gray-200 hover:ring-blue-200 dark:hover:ring-gray-800"
-                src="https://ik.imagekit.io/nk6wikwqs/giphy__1__HzAk8kLlm.webp?updatedAt=1691870981943';"
-                alt="user photo"
-                fill
-                sizes="(max-width: 640px) 50px, (max-width: 768px) 100px, 200px"
-                style={{
-                  objectFit: 'cover'
-                }}
-              />
-            </button>
+            {user && (
+              <button
+                type="button"
+                className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                id="user-menu-button"
+                aria-expanded={showUserMenu ? 'true' : 'false'}
+                data-dropdown-toggle="user-dropdown"
+                data-dropdown-placement="bottom"
+                onClick={toggleShowUserMenu}
+                ref={userMenuButtonRef}
+                style={{ position: 'relative', width: '40px', height: '40px' }}
+              >
+                <span className="sr-only">Open user menu</span>
+
+                <Image
+                  className="w-10 h-10 rounded-full ring-4 ring-gray-200 hover:ring-blue-200 dark:hover:ring-gray-800"
+                  src={user.picture}
+                  alt="user photo"
+                  fill
+                  sizes="(max-width: 640px) 50px, (max-width: 768px) 100px, 200px"
+                  style={{
+                    objectFit: 'cover'
+                  }}
+                />
+              </button>
+            )}
             {/* <!-- Dropdown menu --> */}
             <AnimatePresence>
               {showUserMenu && (
@@ -121,10 +125,10 @@ export default function Navbar() {
                   >
                     <div className="px-4 py-3">
                       <span className="block text-sm text-gray-900 dark:text-white">
-                        Oliver Garcia
+                        {user.firstName} {user.lastName}
                       </span>
                       <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
-                        oliver.garcia@thomann.de
+                        {user.email}
                       </span>
                     </div>
                     <ul className="py-2" aria-labelledby="user-menu-button">
@@ -167,7 +171,7 @@ export default function Navbar() {
                             viewBox="0 0 24 24"
                             strokeWidth="1.5"
                             stroke="currentColor"
-                            class="w-4 h-4 mr-1"
+                            className="w-4 h-4 mr-1"
                           >
                             <path
                               strokeLinecap="round"
