@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useUser } from '@/app/state/UserContext';
 import { useRouter } from 'next/navigation';
 
-const Login = ({ setIsLogin, onLogin }) => {
+const Login = ({ setIsLogin }) => {
   // const { register, handleSubmit } = useForm();
 
   const [email, setEmail] = useState('');

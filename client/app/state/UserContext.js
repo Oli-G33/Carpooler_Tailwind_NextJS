@@ -1,11 +1,13 @@
 'use client';
 import { createContext, useContext, useState, useEffect } from 'react';
 import { loginUser } from '../services/auth';
+import { useRouter } from 'next/navigation';
 
 const UserContext = createContext();
 
 export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
+  const router = useRouter();
 
   // Function to set user data in both state and local storage with expiration
   const setUserAndLocalStorage = userData => {
@@ -23,6 +25,12 @@ export function UserProvider({ children }) {
       // Handle login error
       console.error('Login failed:', error);
     }
+  };
+
+  const handleSignOut = () => {
+    setUser(null);
+    localStorage.removeItem('user');
+    router.push('/auth');
   };
 
   // Effect to check local storage for user data on component mount
@@ -44,7 +52,7 @@ export function UserProvider({ children }) {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, handleLogin }}>
+    <UserContext.Provider value={{ user, handleLogin, handleSignOut }}>
       {children}
     </UserContext.Provider>
   );
