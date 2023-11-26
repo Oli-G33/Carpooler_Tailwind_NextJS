@@ -244,7 +244,7 @@ const Register = ({ setIsLogin }) => {
               ) : (
                 <button
                   type="submit"
-                  className="px-4 py-1 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
+                  className="px-2 py-1 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
                 >
                   Sign up!
                 </button>

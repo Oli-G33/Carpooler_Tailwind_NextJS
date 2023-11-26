@@ -1,12 +1,17 @@
 'use client';
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
 import { loginUser } from '@/app/services/auth';
 
-import React from 'react';
-
 const Login = ({ setIsLogin }) => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+  // const { register, handleSubmit } = useForm();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onSubmit = e => {
+    e.preventDefault();
+    loginUser({ email, password });
+  };
 
   const handleSwitchToRegistration = () => {
     setIsLogin(false);
@@ -33,7 +38,7 @@ const Login = ({ setIsLogin }) => {
               />
             </svg>
           </h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={onSubmit}>
             <div className="mb-4">
               <label
                 htmlFor="email"
@@ -47,6 +52,8 @@ const Login = ({ setIsLogin }) => {
                 name="email"
                 placeholder="email@domain.com"
                 className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
+                onChange={e => setEmail(e.target.value)}
+                required
               />
             </div>
             <div className="mb-4">
@@ -62,6 +69,8 @@ const Login = ({ setIsLogin }) => {
                 name="password"
                 placeholder="•••••••••"
                 className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
+                onChange={e => setPassword(e.target.value)}
+                required
               />
             </div>
             <button

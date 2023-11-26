@@ -10,7 +10,7 @@ const Page = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="mx-6 md:w-1/3">
+      <div className="px-10 md:w-1/3">
         {isLogin ? (
           <Login isLogin={isLogin} setIsLogin={setIsLogin} />
         ) : (
@@ -18,12 +18,12 @@ const Page = () => {
         )}
       </div>
 
-      {/* Background Image (2/4 of the width) */}
-      <div className="md:w-2/3">
+      {/* Background Image (2/3 of the width) */}
+      <div className="w-0 p-1 md:w-2/3">
         <div className="h-full bg-center bg-cover auth-image">
           <Image
             src={AuthImage}
-            alt="B"
+            alt="Background"
             width={1900}
             height={1000}
             className="rounded-md shadow-md"
