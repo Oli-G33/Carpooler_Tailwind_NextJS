@@ -1,7 +1,7 @@
 'use client';
 import { useForm } from 'react-hook-form';
-
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 const Register = ({ setIsLogin }) => {
   const handleSwitchToLogin = () => {
@@ -137,7 +137,7 @@ const Register = ({ setIsLogin }) => {
                     type="text"
                     id="phone"
                     name="phone"
-                    placeholder="+0049123899755"
+                    placeholder="+49 123899755"
                     className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
                   />
                 </div>
@@ -183,17 +183,30 @@ const Register = ({ setIsLogin }) => {
               <div className="mb-10">
                 <label
                   htmlFor="avatar"
-                  className="block mb-8 text-sm font-bold text-blue-800"
+                  className="block mb-3 text-sm font-bold text-blue-800"
                 >
-                  Avatar Image
+                  Avatar
                 </label>
-                <input
-                  type="file"
-                  id="avatar"
-                  name="avatar"
-                  accept="image/*"
-                  className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
-                />
+                <div className="flex flex-col items-center">
+                  <Image
+                    className="mb-4 rounded-full w-14 h-14 ring-4 ring-gray-200 hover:ring-blue-200 dark:hover:ring-gray-800"
+                    src="https://source.unsplash.com/C8Ta0gwPbQg"
+                    alt="user photo"
+                    sizes="(max-width: 640px) 50px, (max-width: 768px) 50px, 100px"
+                    width="500"
+                    height="500"
+                    style={{
+                      objectFit: 'cover'
+                    }}
+                  />
+                  <input
+                    type="file"
+                    id="avatar"
+                    name="avatar"
+                    accept="image/*"
+                    className="w-24 px-1 py-1 text-sm border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
+                  />
+                </div>
               </div>
             )}
 
@@ -244,7 +257,7 @@ const Register = ({ setIsLogin }) => {
               ) : (
                 <button
                   type="submit"
-                  className="px-2 py-1 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
+                  className="px-2 py-1 text-white bg-blue-500 rounded-md font-xs hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
                 >
                   Sign up!
                 </button>
