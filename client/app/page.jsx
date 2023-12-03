@@ -4,7 +4,7 @@ import DatePicker from './components/DatePicker';
 import SearchResult from './components/ui/SearchResult';
 import autoAnimate from '@formkit/auto-animate';
 import { useUser } from './state/UserContext';
-// import { useTheme } from './state/ThemeContext';
+import { useTheme } from 'next-themes';
 
 const searchResultsData = [
   {
@@ -80,8 +80,7 @@ const BookingPage = () => {
   };
 
   const { user, setUser } = useUser();
-  // const { theme, setTheme } = useTheme();
-  const theme = 'dark';
+  const { theme } = useTheme();
 
   const originalDate = new Date(selectedDate);
   const day = originalDate.getDate();
