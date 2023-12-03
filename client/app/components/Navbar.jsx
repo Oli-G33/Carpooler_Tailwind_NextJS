@@ -173,12 +173,7 @@ export default function Navbar() {
                         {user.email}
                       </span>
                     </div>
-                    <ul
-                      className={`py-2 ${
-                        theme === 'dark' ? 'bg-gray-900 border-gray-700' : ''
-                      }`}
-                      aria-labelledby="user-menu-button"
-                    >
+                    <ul className="py-2 " aria-labelledby="user-menu-button">
                       <li>
                         <a
                           href="#"

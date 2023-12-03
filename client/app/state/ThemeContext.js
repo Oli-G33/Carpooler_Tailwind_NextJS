@@ -14,7 +14,9 @@ export function ThemeProvider({ children }) {
 
   // Update local storage when the theme changes
   useEffect(() => {
-    localStorage.setItem('theme', theme);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', theme);
+    }
   }, [theme]);
 
   return (
