@@ -22,7 +22,7 @@ export function ThemeProvider({ children }) {
   }, [theme, isBrowser]);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

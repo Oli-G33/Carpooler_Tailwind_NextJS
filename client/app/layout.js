@@ -4,7 +4,8 @@ import { Inter } from 'next/font/google';
 import Copyright from './components/Copyright';
 import { Toaster } from 'sonner';
 import { UserProvider } from './state/UserContext';
-import { ThemeProvider } from './state/ThemeContext';
+// import { ThemeProvider } from './state/ThemeContext';
+import Providers from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,12 +19,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <UserProvider>
-          <ThemeProvider>
+          <Providers>
+            {/* <ThemeProvider> */}
             {<Navbar />}
             {<Toaster richColors />}
             {children}
             <Copyright />
-          </ThemeProvider>
+            {/* </ThemeProvider> */}
+          </Providers>
         </UserProvider>
       </body>
     </html>
