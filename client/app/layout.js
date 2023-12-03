@@ -22,7 +22,9 @@ export default function RootLayout({ children }) {
             {<Navbar />}
             {<Toaster richColors />}
             {children}
-            <Copyright />
+            <div className="flex justify-center bg-gray-100 ">
+              <Copyright />
+            </div>
           </ThemeProvider>
         </UserProvider>
       </body>

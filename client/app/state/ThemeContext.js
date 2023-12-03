@@ -13,9 +13,9 @@ export function ThemeProvider({ children }) {
   };
 
   // Update local storage when the theme changes
-  // useEffect(() => {
-  //   localStorage.setItem('theme', theme);
-  // }, [theme]);
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
