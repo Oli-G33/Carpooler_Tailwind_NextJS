@@ -66,6 +66,7 @@ const Login = ({ setIsLogin }) => {
                 className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
                 onChange={e => setEmail(e.target.value)}
                 required
+                autoFocus
               />
             </div>
             <div className="mb-4">

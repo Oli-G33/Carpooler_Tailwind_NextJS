@@ -1,6 +1,6 @@
 'use client';
 import { createContext, useContext, useState, useEffect } from 'react';
-import { loginUser } from '../services/auth';
+import { loginUser, registerUser } from '../services/auth';
 import { useRouter } from 'next/navigation';
 
 const UserContext = createContext();
@@ -33,9 +33,23 @@ export function UserProvider({ children }) {
     router.push('/auth');
   };
 
+  const handleRegister = async credentials => {
+    try {
+      const userData = await registerUser(credentials);
+      setUserAndLocalStorage(userData);
+      router.push('/');
+      setTimeout(() => {
+        window.location.reload();
+      }, '0200');
+    } catch (error) {
+      console.log('Registration failed:', error);
+    }
+  };
+
   // Effect to check local storage for user data on component mount
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
+
     if (storedUser) {
       const parsedUser = JSON.parse(storedUser);
       // Check if the data has not expired
@@ -43,7 +57,7 @@ export function UserProvider({ children }) {
         !parsedUser.expirationTime ||
         new Date().getTime() < parsedUser.expirationTime
       ) {
-        setUser(parsedUser.user);
+        setUser(parsedUser.user || parsedUser);
       } else {
         // Clear local storage if data has expired
         localStorage.removeItem('user');
@@ -52,7 +66,9 @@ export function UserProvider({ children }) {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, handleLogin, handleSignOut }}>
+    <UserContext.Provider
+      value={{ user, handleLogin, handleSignOut, handleRegister }}
+    >
       {children}
     </UserContext.Provider>
   );

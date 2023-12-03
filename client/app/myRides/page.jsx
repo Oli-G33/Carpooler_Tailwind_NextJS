@@ -1,5 +1,4 @@
 import React from 'react';
-import WidgetWrapper from '../components/ui/WidgetWrapper';
 
 const index = () => {
   return (

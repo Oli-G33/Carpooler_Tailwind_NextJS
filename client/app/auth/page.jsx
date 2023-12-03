@@ -27,6 +27,7 @@ const Page = () => {
             width={1900}
             height={1000}
             className="rounded-md shadow-md"
+            priority={true}
           />
         </div>
       </div>

@@ -10,3 +10,13 @@ export const loginUser = async credentials => {
     throw error;
   }
 };
+
+export const registerUser = async credentials => {
+  console.log(api);
+  try {
+    const response = await api.post('/auth/register', credentials);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
