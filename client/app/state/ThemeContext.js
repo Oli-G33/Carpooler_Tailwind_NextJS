@@ -4,7 +4,9 @@ import { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const storedTheme = localStorage.getItem('theme');
+  const isBrowser = typeof window !== 'undefined';
+
+  const storedTheme = isBrowser ? localStorage.getItem('theme') : null;
   const [theme, setTheme] = useState(storedTheme || 'light');
 
   // Toggle the theme
@@ -14,10 +16,10 @@ export function ThemeProvider({ children }) {
 
   // Update local storage when the theme changes
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (isBrowser) {
       localStorage.setItem('theme', theme);
     }
-  }, [theme]);
+  }, [theme, isBrowser]);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -26,7 +28,6 @@ export function ThemeProvider({ children }) {
   );
 }
 
-// Create the custom hook for using the theme
 export function useTheme() {
   return useContext(ThemeContext);
 }
