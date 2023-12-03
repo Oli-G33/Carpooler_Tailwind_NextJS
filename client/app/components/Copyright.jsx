@@ -5,7 +5,7 @@ const currentYear = new Date().getFullYear();
 
 const Copyright = () => {
   return (
-    <div className="bottom-0 flex justify-center mt-6 text-center">
+    <div className="bottom-0 flex justify-center p-2 text-center bg-gray-100">
       <span>
         Copyright ©{' '}
         <Link

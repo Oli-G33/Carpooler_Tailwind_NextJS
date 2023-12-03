@@ -4,6 +4,7 @@ import DatePicker from './components/DatePicker';
 import SearchResult from './components/ui/SearchResult';
 import autoAnimate from '@formkit/auto-animate';
 import { useUser } from './state/UserContext';
+import { useTheme } from './state/ThemeContext';
 
 const searchResultsData = [
   {
@@ -79,6 +80,7 @@ const BookingPage = () => {
   };
 
   const { user, setUser } = useUser();
+  const { theme } = useTheme();
 
   const originalDate = new Date(selectedDate);
   const day = originalDate.getDate();
@@ -101,7 +103,11 @@ const BookingPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen mt-16 mb-1 bg-gray-100">
+    <div
+      className={`flex flex-col items-center justify-center min-h-screen mt-16 mb-1 ${
+        theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'
+      }`}
+    >
       {/* <header className="w-auto py-4 mt-6 text-center text-black bg-white shadow-lg min-w-max rounded-xl headers">
         <h1 className="px-8 text-lg font-semibold md:text-2xl lg:text-3xl">
           Request a Ride

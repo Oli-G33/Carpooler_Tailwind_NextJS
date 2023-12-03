@@ -17,16 +17,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <Provider store={store}> */}
-        {/* <PersistGate loading={null} persistor={persistor}> */}
         <UserProvider>
           <ThemeProvider>
             {<Navbar />}
             {<Toaster richColors />}
             {children}
-            <div className="flex justify-center bg-gray-100 ">
-              <Copyright />
-            </div>
+            <Copyright />
           </ThemeProvider>
         </UserProvider>
       </body>
