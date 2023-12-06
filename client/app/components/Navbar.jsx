@@ -86,7 +86,11 @@ export default function Navbar() {
               width="50"
               height="50"
             />
-            <span className="self-center text-2xl font-semibold text-blue-900 whitespace-nowrap dark:text-white">
+            <span
+              className={`self-center text-2xl font-semibold ${
+                theme === 'dark' ? 'text-white' : 'text-blue-900'
+              }  whitespace-nowrap `}
+            >
               Carpooler
             </span>
           </a>
@@ -235,7 +239,7 @@ export default function Navbar() {
                 <li>
                   <a
                     href="/"
-                    className="block py-2 pl-3 pr-4 rounded focus:text-red-600 focus:bg-blue-100 md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                    className="block py-2 pl-3 pr-4 text-black rounded focus:text-red-600 focus:bg-blue-100 md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
                     aria-current="page"
                   >
                     Book

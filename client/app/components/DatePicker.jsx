@@ -37,6 +37,7 @@ const DatePicker = ({ selectedDate, onDateSelect }) => {
         Select a Date
       </label>
       <input
+        id="dateInput"
         type="date"
         placeholder="Select a Date"
         className="px-3 py-2 leading-tight border border-gray-400 rounded-lg appearance-none focus:outline-none focus:bg-white focus:border-indigo-500"

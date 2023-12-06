@@ -115,9 +115,17 @@ const BookingPage = () => {
       </header> */}
       <main className="container flex-grow p-4 mx-auto mt-8 mb-0">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <div className="flex flex-col items-center justify-center p-8 text-center bg-white shadow-lg md:h-64 rounded-xl">
+          <div
+            className={`flex flex-col items-center justify-center p-8 text-center ${
+              theme === 'dark' ? 'bg-gray-600' : 'bg-white'
+            }  shadow-lg md:h-64 rounded-xl`}
+          >
             {/* Date Picker (Takes half width on md screens and above) */}
-            <h2 className="mb-6 font-sans text-xl font-semibold text-blue-900">
+            <h2
+              className={`mb-6 font-sans text-xl font-semibold ${
+                theme === 'dark' ? 'text-gray-100' : 'text-blue-900'
+              } `}
+            >
               Choose a Date
             </h2>
             <DatePicker
@@ -142,7 +150,11 @@ const BookingPage = () => {
             </h2>
 
             {showResults && (
-              <div className="mt-2 overflow-y-auto md:p-8 max-h-96 custom-scrollbar">
+              <div
+                className={`mt-2 overflow-y-auto md:p-8 max-h-96 custom-scrollbar ${
+                  theme === 'dark' ? 'bg-gray-600' : 'bg-white'
+                }`}
+              >
                 {searchResultsData.map((result, index) => (
                   <SearchResult key={index} {...result} />
                 ))}

@@ -1,11 +1,25 @@
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 const ThemeSelector = () => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+
+    // if (!theme) {
+    //   setTheme('dark');
+    // }
+  }, []);
 
   const toggleTheme = () => {
-    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+    theme === 'light' ? setTheme('dark') : setTheme('light');
   };
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className="mr-3 md:mr-6">
@@ -14,7 +28,7 @@ const ThemeSelector = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="0 0 24 24"
+            viewBox="0 0 24 18"
             strokeWidth="1.5"
             stroke="white"
             className="w-8 h-8"
@@ -29,7 +43,7 @@ const ThemeSelector = () => {
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
-            viewBox="0 0 24 24"
+            viewBox="0 0 24 20"
             strokeWidth="1.5"
             stroke="currentColor"
             className="w-8 h-8"
