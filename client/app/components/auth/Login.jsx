@@ -31,9 +31,9 @@ const Login = ({ setIsLogin }) => {
 
   return (
     <div>
-      <div className="flex items-center justify-center bg-gray-100">
-        <div className="w-full p-8 bg-white shadow-lg rounded-xl min-w-fit min-h-[450px]">
-          <h2 className="flex items-center justify-center mb-6 text-2xl font-semibold text-center text-blue-800">
+      <div className="flex items-center justify-center bg-gray-100 rounded-xl">
+        <div className="dark:bg-gray-600 w-full p-8 bg-white shadow-lg rounded-xl min-w-fit min-h-[450px]">
+          <h2 className="flex items-center justify-center mb-6 text-2xl font-semibold text-center text-blue-800 dark:text-gray-200">
             Login
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -54,7 +54,7 @@ const Login = ({ setIsLogin }) => {
             <div className="mb-4">
               <label
                 htmlFor="email"
-                className="block mb-2 text-sm font-bold text-blue-800"
+                className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
               >
                 Email Address
               </label>
@@ -72,7 +72,7 @@ const Login = ({ setIsLogin }) => {
             <div className="mb-4">
               <label
                 htmlFor="password"
-                className="block mb-2 text-sm font-bold text-blue-800"
+                className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
               >
                 Password
               </label>
@@ -97,7 +97,7 @@ const Login = ({ setIsLogin }) => {
             <small>
               Don&apos;t have an account?{' '}
               <a
-                className="text-blue-700 hover:cursor-pointer hover:underline"
+                className="text-blue-700 hover:cursor-pointer hover:underline dark:text-blue-900 dark:font-semibold"
                 onClick={handleSwitchToRegistration}
               >
                 Sign up!

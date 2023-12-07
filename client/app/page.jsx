@@ -103,10 +103,7 @@ const BookingPage = () => {
   };
 
   return (
-    <div
-      className={`flex flex-col items-center justify-center min-h-screen mt-16 dark:bg-gray-800  bg-gray-100
-      `}
-    >
+    <div className="flex flex-col items-center justify-center min-h-screen mt-16 bg-gray-100 dark:bg-gray-800">
       {/* <header className="w-auto py-4 mt-6 text-center text-black bg-white shadow-lg min-w-max rounded-xl headers">
         <h1 className="px-8 text-lg font-semibold md:text-2xl lg:text-3xl">
           Request a Ride
@@ -114,11 +111,7 @@ const BookingPage = () => {
       </header> */}
       <main className="container flex-grow p-4 mx-auto mt-8 mb-0">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <div
-            className={`flex flex-col items-center justify-center p-8 text-center ${
-              theme === 'dark' ? 'bg-gray-600' : 'bg-white'
-            }  shadow-lg md:h-64 rounded-xl`}
-          >
+          <div className="flex flex-col items-center justify-center p-8 text-center bg-white shadow-lg dark:bg-gray-600 md:h-64 rounded-xl">
             {/* Date Picker (Takes half width on md screens and above) */}
             <h2
               className={`mb-6 font-sans text-xl font-semibold ${

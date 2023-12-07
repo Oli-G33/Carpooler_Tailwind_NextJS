@@ -53,9 +53,9 @@ const Register = ({ setIsLogin }) => {
 
   return (
     <div>
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <div className="w-full max-w-md p-8 bg-white shadow-lg h-2/3 rounded-xl min-h-[450px] min-w-[310px] md:min-w-0">
-          <h2 className="flex items-center justify-center mb-6 text-2xl font-semibold text-center text-blue-800">
+      <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-800 rounded-xl">
+        <div className="w-full max-w-md dark:bg-gray-600 p-8 bg-white shadow-lg h-2/3 rounded-xl min-h-[450px] min-w-[310px] md:min-w-0">
+          <h2 className="flex items-center justify-center mb-6 text-2xl font-semibold text-center text-blue-800 dark:text-gray-200">
             Register
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ const Register = ({ setIsLogin }) => {
                     </span>
                   </div> */}
                   <div className="text-right">
-                    <span className="inline-block text-xs font-semibold text-blue-600">
+                    <span className="inline-block text-xs font-semibold text-blue-600 dark:text-gray-200">
                       {step} of {totalSteps}
                     </span>
                   </div>
@@ -104,7 +104,7 @@ const Register = ({ setIsLogin }) => {
               <div className="mb-4">
                 <label
                   htmlFor="firstName"
-                  className="block mb-2 text-sm font-bold text-blue-800"
+                  className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
                 >
                   First Name
                 </label>
@@ -121,7 +121,7 @@ const Register = ({ setIsLogin }) => {
               <div className="mb-4">
                 <label
                   htmlFor="lastName"
-                  className="block mb-2 text-sm font-bold text-blue-800"
+                  className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
                 >
                   Last Name
                 </label>
@@ -142,7 +142,7 @@ const Register = ({ setIsLogin }) => {
               <div className="mb-4">
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-bold text-blue-800"
+                  className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
                 >
                   Email Address
                 </label>
@@ -159,7 +159,7 @@ const Register = ({ setIsLogin }) => {
               <div className="mb-4">
                 <label
                   htmlFor="phone"
-                  className="block mb-2 text-sm font-bold text-blue-800"
+                  className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
                 >
                   Mobile Number
                 </label>
@@ -180,7 +180,7 @@ const Register = ({ setIsLogin }) => {
               <div className="mb-4">
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-bold text-blue-800"
+                  className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
                 >
                   Password
                 </label>
@@ -197,7 +197,7 @@ const Register = ({ setIsLogin }) => {
               <div className="mb-4">
                 <label
                   htmlFor="confirmPassword"
-                  className="block mb-2 text-sm font-bold text-blue-800"
+                  className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
                 >
                   Confirm Password
                 </label>
@@ -217,7 +217,7 @@ const Register = ({ setIsLogin }) => {
             <div className="mb-10">
               <label
                 htmlFor="avatar"
-                className="block mb-3 text-sm font-bold text-blue-800"
+                className="block mb-3 text-sm font-bold text-blue-800 dark:text-gray-200"
               >
                 Avatar
               </label>
@@ -299,11 +299,11 @@ const Register = ({ setIsLogin }) => {
               </button>
             )}
           </div>
-          <div className="mt-3 text-center">
+          <div className="mt-3 text-center dark:text-gray-200">
             <small>
               Already registered?{' '}
               <a
-                className="text-blue-700 hover:cursor-pointer hover:underline"
+                className="text-blue-700 hover:cursor-pointer hover:underline dark:text-blue-900 dark:font-semibold"
                 onClick={handleSwitchToLogin}
               >
                 Log in!
