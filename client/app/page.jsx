@@ -104,9 +104,10 @@ const BookingPage = () => {
 
   return (
     <div
-      className={`flex flex-col items-center justify-center min-h-screen mt-16 mb-1 ${
-        theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'
-      }`}
+      className={`flex ${
+        theme === 'dark' ? 'background-img-dark' : 'background-img'
+      } flex-col items-center justify-center min-h-screen mt-16 dark:bg-gray-800  bg-gray-100
+      `}
     >
       {/* <header className="w-auto py-4 mt-6 text-center text-black bg-white shadow-lg min-w-max rounded-xl headers">
         <h1 className="px-8 text-lg font-semibold md:text-2xl lg:text-3xl">

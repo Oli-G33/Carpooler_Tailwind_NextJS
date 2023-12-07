@@ -15,7 +15,6 @@ export default function Navbar() {
 
   const { user, handleSignOut } = useUser();
   const { theme } = useTheme();
-  console.log(theme);
 
   const userMenuButtonRef = useRef(null);
   const topbarButtonRef = useRef(null);
