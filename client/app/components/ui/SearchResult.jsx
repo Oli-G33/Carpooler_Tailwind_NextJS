@@ -19,7 +19,7 @@ const SearchResult = ({
   };
 
   return (
-    <div className="flex items-center p-4 mx-4 my-2 bg-white shadow-custom rounded-xl">
+    <div className="flex items-center p-4 mx-4 my-2 bg-white dark:bg-slate-400 shadow-custom rounded-xl">
       <div
         className="mr-4"
         style={{ position: 'relative', width: '50px', height: '50px' }}
@@ -37,10 +37,10 @@ const SearchResult = ({
       </div>
 
       <div className="flex-grow mr-1">
-        <h3 className="text-base font-semibold text-blue-500 lg:text-lg">
+        <h3 className="text-base font-semibold text-blue-500 dark:text-blue-600 lg:text-lg">
           {driverName}
         </h3>
-        <p className="text-xs font-light lg:text-base">
+        <p className="text-xs font-light dark:text-gray-100 lg:text-base">
           Available: {availableSeats} Seats
         </p>
         <p className="text-xs font-light lg:text-base">Shift: {driverShift}</p>

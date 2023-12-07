@@ -141,9 +141,9 @@ const BookingPage = () => {
           </div>
           <div
             ref={parent}
-            className="max-w-screen-xl mt-4 bg-white shadow-lg md:mt-0 rounded-xl"
+            className="max-w-screen-xl mt-4 bg-white shadow-lg md:mt-0 rounded-xl dark:bg-gray-600"
           >
-            <h2 className="p-4 font-sans text-base font-semibold text-center text-blue-900 border-b md:text-xl">
+            <h2 className="p-4 font-sans text-base font-semibold text-center text-blue-900 rounded-xl dark:text-gray-200 md:text-xl">
               {selectedDate
                 ? `Search Results for ${formattedDate}`
                 : 'No date selected'}
@@ -151,7 +151,7 @@ const BookingPage = () => {
 
             {showResults && (
               <div
-                className={`mt-2 overflow-y-auto md:p-8 max-h-96 custom-scrollbar ${
+                className={`mt-2 dark:mt-0 overflow-y-auto md:p-8 max-h-96 custom-scrollbar ${
                   theme === 'dark' ? 'bg-gray-600' : 'bg-white'
                 }`}
               >
