@@ -13,7 +13,7 @@ const Copyright = () => {
         <div className="w-full max-w-screen-xl p-4 mx-auto">
           <div className="flex items-center justify-between">
             <a
-              href="https://flowbite.com/"
+              href="/"
               className="flex items-center mb-4 space-x-3 sm:mb-0 rtl:space-x-reverse"
             >
               <img
@@ -119,6 +119,8 @@ const Copyright = () => {
             <a
               href="https://oliver-garcia.onrender.com/"
               className="hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Oliver Garcia
             </a>
