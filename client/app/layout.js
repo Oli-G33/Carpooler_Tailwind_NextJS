@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         <UserProvider>
           <Providers>
             {<Navbar />}
-            {<Toaster richColors />}
+            {<Toaster richColors closeButton />}
             {children}
             <Copyright />
           </Providers>

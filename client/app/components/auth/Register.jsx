@@ -115,7 +115,6 @@ const Register = ({ setIsLogin }) => {
                   placeholder="John"
                   className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
                   onChange={e => setFirstName(e.target.value)}
-                  autoFocus
                 />
               </div>
               <div className="mb-4">
@@ -150,7 +149,6 @@ const Register = ({ setIsLogin }) => {
                   type="email"
                   id="email"
                   name="email"
-                  autoFocus
                   placeholder="name@domain.com"
                   className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
                   onChange={e => setEmail(e.target.value)}
@@ -188,7 +186,6 @@ const Register = ({ setIsLogin }) => {
                   type="password"
                   id="password"
                   name="password"
-                  autoFocus
                   placeholder="Enter your password"
                   className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
                   onChange={e => setPassword(e.target.value)}
@@ -303,7 +300,7 @@ const Register = ({ setIsLogin }) => {
             <small>
               Already registered?{' '}
               <a
-                className="text-blue-700 hover:cursor-pointer hover:underline dark:text-blue-900 dark:font-semibold"
+                className="text-blue-700 hover:cursor-pointer hover:underline dark:text-blue-500 dark:font-semibold"
                 onClick={handleSwitchToLogin}
               >
                 Log in!

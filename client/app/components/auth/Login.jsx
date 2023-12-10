@@ -62,6 +62,7 @@ const Login = ({ setIsLogin }) => {
                 type="email"
                 id="email"
                 name="email"
+                autoComplete="off"
                 placeholder="email@domain.com"
                 className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
                 onChange={e => setEmail(e.target.value)}
@@ -80,6 +81,7 @@ const Login = ({ setIsLogin }) => {
                 type="password"
                 id="password"
                 name="password"
+                autoComplete="off"
                 placeholder="•••••••••"
                 className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
                 onChange={e => setPassword(e.target.value)}
@@ -97,7 +99,7 @@ const Login = ({ setIsLogin }) => {
             <small>
               Don&apos;t have an account?{' '}
               <a
-                className="text-blue-700 hover:cursor-pointer hover:underline dark:text-blue-900 dark:font-semibold"
+                className="text-blue-700 hover:cursor-pointer hover:underline dark:text-blue-500 dark:font-semibold"
                 onClick={handleSwitchToRegistration}
               >
                 Sign up!

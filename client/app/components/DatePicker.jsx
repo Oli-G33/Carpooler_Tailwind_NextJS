@@ -16,8 +16,7 @@ const DatePicker = ({ selectedDate, onDateSelect }) => {
       e.target.value = '';
       toast.error('Please select a weekday!', {
         position: 'bottom-center',
-        duration: 5000,
-        cancel: true
+        duration: 5000
       });
     } else {
       // If a valid date is selected, update the state in the parent component

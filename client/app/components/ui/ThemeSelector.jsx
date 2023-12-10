@@ -45,7 +45,7 @@ const ThemeSelector = () => {
             fill="none"
             viewBox="0 0 24 20"
             strokeWidth="1.5"
-            stroke="currentColor"
+            stroke="#1e3a8c"
             className="w-8 h-8"
           >
             <path
