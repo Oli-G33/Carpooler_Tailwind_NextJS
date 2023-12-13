@@ -89,7 +89,7 @@ const Login = ({ setIsLogin }) => {
               />
             </div>
             <button
-              type="button"
+              type="submit"
               className="min-w-full px-4 py-1 mb-3 font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-indigo-200"
             >
               Login
