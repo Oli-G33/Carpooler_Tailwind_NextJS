@@ -90,7 +90,7 @@ export default function Navbar() {
                 theme === 'dark' ? 'text-white' : 'text-blue-900'
               }  whitespace-nowrap `}
             >
-              Carpooler
+              Carpooler™
             </span>
           </a>
 

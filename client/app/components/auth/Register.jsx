@@ -6,15 +6,33 @@ import { useUser } from '@/app/state/UserContext';
 import { useRouter } from 'next/navigation';
 
 const Register = ({ setIsLogin }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPass, setConfirmPass] = useState('');
-  const [picture, setPicture] = useState(
-    'https://source.unsplash.com/C8Ta0gwPbQg'
-  );
-  const [phoneNumber, setPhoneNumber] = useState('');
+  // const [firstName, setFirstName] = useState('');
+  // const [lastName, setLastName] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [confirmPass, setConfirmPass] = useState('');
+  // const [picture, setPicture] = useState(
+  //   'https://source.unsplash.com/C8Ta0gwPbQg'
+  // );
+  // const [phoneNumber, setPhoneNumber] = useState('');
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors }
+  } = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      password: '',
+      confirmPass: ''
+    }
+  });
+  console.log(errors);
+  const firstName = watch('firstName');
 
   const handleSwitchToLogin = () => {
     setIsLogin(true);
@@ -33,21 +51,21 @@ const Register = ({ setIsLogin }) => {
     setStep(step - 1);
   };
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    try {
-      await handleRegister({
-        email,
-        password,
-        firstName,
-        lastName,
-        phoneNumber,
-        picture
-      });
-    } catch (error) {
-      console.error('Registration failed:', error);
-    }
-  };
+  // const handleSubmit = async e => {
+  //   e.preventDefault();
+  //   try {
+  //     await handleRegister({
+  //       email,
+  //       password,
+  //       firstName,
+  //       lastName,
+  //       phoneNumber,
+  //       picture
+  //     });
+  //   } catch (error) {
+  //     console.error('Registration failed:', error);
+  //   }
+  // };
 
   const totalSteps = 4;
 
@@ -98,215 +116,247 @@ const Register = ({ setIsLogin }) => {
               </div>
             </div>
           </div>
-
-          {step === 1 && (
-            <div>
-              <div className="mb-4">
-                <label
-                  htmlFor="firstName"
-                  className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
-                >
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  placeholder="John"
-                  className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
-                  onChange={e => setFirstName(e.target.value)}
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="lastName"
-                  className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
-                >
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  placeholder="Smith"
-                  className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
-                  onChange={e => setLastName(e.target.value)}
-                />
-              </div>
-            </div>
-          )}
-
-          {step === 2 && (
-            <div>
-              <div className="mb-4">
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
-                >
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="name@domain.com"
-                  className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
-                  onChange={e => setEmail(e.target.value)}
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="phone"
-                  className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
-                >
-                  Mobile Number
-                </label>
-                <input
-                  type="text"
-                  id="phone"
-                  name="phone"
-                  placeholder="+49 123899755"
-                  className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
-                  onChange={e => setPhoneNumber(e.target.value)}
-                />
-              </div>
-            </div>
-          )}
-
-          {step === 3 && (
-            <div>
-              <div className="mb-4">
-                <label
-                  htmlFor="password"
-                  className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
-                >
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Enter your password"
-                  className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
-                  onChange={e => setPassword(e.target.value)}
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  htmlFor="confirmPassword"
-                  className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
-                >
-                  Confirm Password
-                </label>
-                <input
-                  type="password"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  placeholder="Confirm your password"
-                  className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
-                  onChange={e => setConfirmPass(e.target.value)}
-                />
-              </div>
-            </div>
-          )}
-
-          {step === 4 && (
-            <div className="mb-10">
-              <label
-                htmlFor="avatar"
-                className="block mb-3 text-sm font-bold text-blue-800 dark:text-gray-200"
-              >
-                Avatar
-              </label>
-              <div className="flex flex-col items-center">
-                <Image
-                  className="mb-4 rounded-full w-14 h-14 ring-4 ring-gray-200 hover:ring-blue-200 dark:hover:ring-gray-800"
-                  src="https://source.unsplash.com/C8Ta0gwPbQg"
-                  alt="user photo"
-                  sizes="(max-width: 640px) 50px, (max-width: 768px) 50px, 100px"
-                  width="500"
-                  height="500"
-                  style={{
-                    objectFit: 'cover'
-                  }}
-                />
-                <input
-                  type="file"
-                  id="avatar"
-                  name="avatar"
-                  accept="image/*"
-                  className="w-24 px-1 py-1 text-sm border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
-                  onChange={e => setPicture(e.target.value)}
-                />
-              </div>
-            </div>
-          )}
-
-          <div className="flex justify-between mt-6">
-            {step > 1 && (
-              <button
-                type="button"
-                onClick={prevStep}
-                className="px-4 py-1 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 19.5L8.25 12l7.5-7.5"
+          <form
+            onSubmit={handleSubmit(data => {
+              console.log(data);
+            })}
+          >
+            {step === 1 && (
+              <div>
+                <div className="mb-4">
+                  <input
+                    {...register('firstName', {
+                      required: 'First Name Is Required',
+                      minLength: { value: 4, message: 'Min 4 Characters' }
+                    })}
                   />
-                </svg>
-              </button>
-            )}
-            {step < totalSteps ? (
-              <button
-                type="button"
-                onClick={nextStep}
-                className="px-4 py-1 ml-auto font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                  <p className="mt-0.5 text-red-500 text-xs">
+                    {errors.firstName?.message}
+                  </p>
+                  <br />
+                  <br />
+                  <input
+                    {...register('lastName', {
+                      required: 'Last Name Is Required',
+                      minLength: { value: 4, message: 'Min 4 Characters' }
+                    })}
                   />
-                </svg>
-              </button>
-            ) : (
-              <button
-                type="submit"
-                className="px-2 py-1 text-white bg-blue-500 rounded-md font-xs hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
-                onClick={handleSubmit}
-              >
-                Sign up!
-              </button>
+                  <p className="mt-0.5 text-red-500 text-xs">
+                    {errors.lastName?.message}
+                  </p>
+                  <br />
+                  <br />
+                  <input type="submit" />
+
+                  {/* <label
+                    htmlFor="firstName"
+                    className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
+                  >
+                    First Name
+                  </label>
+                  <input
+                    id="firstName"
+                    className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
+                    {...register('firstName', {
+                      required: 'First Name Is Required',
+                      minLength: { value: 4, message: 'Min 4 Characters' }
+                    })}
+                    placeholder="John"
+                  />
+                  <p className="text-sm text-red-500 mt-0.5">
+                    {errors.firstName?.message}
+                  </p>
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="lastName"
+                    className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
+                  >
+                    Last Name
+                  </label> */}
+                  {/* <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Smith"
+                    className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
+                    {...register('lastName', {
+                      required: 'Last Name Is Required',
+                      minLength: { value: 4, message: 'Min 4 Characters' }
+                    })}
+                  /> */}
+                  {/* <p className="text-sm text-red-500 mt-0.5">
+                    {errors.lastName?.message}
+                  </p> */}
+                </div>
+              </div>
             )}
-          </div>
-          <div className="mt-3 text-center dark:text-gray-200">
-            <small>
-              Already registered?{' '}
-              <a
-                className="text-blue-700 hover:cursor-pointer hover:underline dark:text-blue-500 dark:font-semibold"
-                onClick={handleSwitchToLogin}
-              >
-                Log in!
-              </a>
-            </small>
-          </div>
+
+            {step === 2 && (
+              <div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="email"
+                    className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="name@domain.com"
+                    className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="phone"
+                    className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
+                  >
+                    Mobile Number
+                  </label>
+                  <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    placeholder="+49 123899755"
+                    className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
+                  />
+                </div>
+              </div>
+            )}
+
+            {step === 3 && (
+              <div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="password"
+                    className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label
+                    htmlFor="confirmPassword"
+                    className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
+                  >
+                    Confirm Password
+                  </label>
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Confirm your password"
+                    className="w-full px-3 py-2 border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
+                  />
+                </div>
+              </div>
+            )}
+
+            {step === 4 && (
+              <div className="mb-10">
+                <label
+                  htmlFor="avatar"
+                  className="block mb-3 text-sm font-bold text-blue-800 dark:text-gray-200"
+                >
+                  Avatar
+                </label>
+                <div className="flex flex-col items-center">
+                  <Image
+                    className="mb-4 rounded-full w-14 h-14 ring-4 ring-gray-200 hover:ring-blue-200 dark:hover:ring-gray-800"
+                    src="https://source.unsplash.com/C8Ta0gwPbQg"
+                    alt="user photo"
+                    sizes="(max-width: 640px) 50px, (max-width: 768px) 50px, 100px"
+                    width="500"
+                    height="500"
+                    style={{
+                      objectFit: 'cover'
+                    }}
+                  />
+                  <input
+                    type="file"
+                    id="avatar"
+                    name="avatar"
+                    accept="image/*"
+                    className="w-24 px-1 py-1 text-sm border rounded-md focus:ring focus:ring-indigo-200 focus:outline-none"
+                  />
+                </div>
+              </div>
+            )}
+
+            <div className="flex justify-between mt-6">
+              {step > 1 && (
+                <button
+                  type="button"
+                  onClick={prevStep}
+                  className="px-4 py-1 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 19.5L8.25 12l7.5-7.5"
+                    />
+                  </svg>
+                </button>
+              )}
+              {step < totalSteps ? (
+                <button
+                  type="button"
+                  onClick={nextStep}
+                  className="px-4 py-1 ml-auto font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                    />
+                  </svg>
+                </button>
+              ) : (
+                <input
+                  type="submit"
+                  className="px-2 py-1 text-white bg-blue-500 rounded-md font-xs hover:bg-blue-600 focus:outline-none focus:ring focus:ring-indigo-200"
+                  value="Sign Up!"
+                />
+              )}
+            </div>
+            <div className="mt-3 text-center dark:text-gray-200">
+              <small>
+                Already registered?{' '}
+                <a
+                  className="text-blue-700 hover:cursor-pointer hover:underline dark:text-blue-500 dark:font-semibold"
+                  onClick={handleSwitchToLogin}
+                >
+                  Log in!
+                </a>
+              </small>
+            </div>
+          </form>
         </div>
       </div>
     </div>

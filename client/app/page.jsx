@@ -5,6 +5,9 @@ import SearchResult from './components/ui/SearchResult';
 import autoAnimate from '@formkit/auto-animate';
 import { useUser } from './state/UserContext';
 import { useTheme } from 'next-themes';
+import { MdEmojiTransportation } from 'react-icons/md';
+import { HiOutlineRocketLaunch } from 'react-icons/hi2';
+import { MdTrain } from 'react-icons/md';
 
 const searchResultsData = [
   {
@@ -103,33 +106,47 @@ const BookingPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen mt-16 bg-gray-100 dark:bg-gray-800">
-      {/* <header className="w-auto py-4 mt-6 text-center text-black bg-white shadow-lg min-w-max rounded-xl headers">
-        <h1 className="px-8 text-lg font-semibold md:text-2xl lg:text-3xl">
-          Request a Ride
-        </h1>
-      </header> */}
+    <div className="flex flex-col items-center justify-center min-h-screen pb-6 mt-16 bg-gray-100 dark:bg-gray-800">
       <main className="container flex-grow p-4 mx-auto mt-8 mb-0">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <div className="flex flex-col items-center justify-center p-8 text-center bg-white shadow-lg dark:bg-gray-600 md:h-64 rounded-xl">
-            {/* Date Picker (Takes half width on md screens and above) */}
-            <h2
-              className={`mb-6 font-sans text-xl font-semibold ${
-                theme === 'dark' ? 'text-gray-100' : 'text-blue-900'
-              } `}
-            >
-              Choose a Date
-            </h2>
-            <DatePicker
-              selectedDate={selectedDate}
-              onDateSelect={handleDateSelect}
-            />
-            <button
-              className="px-4 py-2 mx-auto mt-6 font-semibold text-white transition duration-300 ease-in-out delay-150 bg-blue-500 rounded-full hover:-translate-y-1 hover:scale-110 hover:bg-blue-800"
-              onClick={handleSearch}
-            >
-              See availability
-            </button>
+          <div className="gap-8 md:grid">
+            <div className="flex flex-col items-center justify-center p-8 text-center bg-white shadow-lg dark:bg-gray-600 md:h-64 rounded-xl">
+              {/* Date Picker (Takes half width on md screens and above) */}
+              <h2 className="mb-6 font-sans text-xl font-semibold text-blue-900 dark:text-gray-100 ">
+                Choose a Date
+              </h2>
+              <DatePicker
+                selectedDate={selectedDate}
+                onDateSelect={handleDateSelect}
+              />
+              <button
+                className="px-4 py-2 mx-auto mt-6 font-semibold text-white transition duration-300 ease-in-out delay-150 bg-blue-500 rounded-full hover:-translate-y-1 hover:scale-110 hover:bg-blue-800"
+                onClick={handleSearch}
+              >
+                See availability
+              </button>
+            </div>
+            <div className="justify-center hidden p-8 bg-white shadow-lg md:flex dark:bg-gray-600 rounded-xl">
+              <div>
+                <p className="font-sans text-3xl italic font-semibold text-blue-900 dark:text-gray-200">
+                  Ready for some stress-free commuting? Hop in and let our
+                  drivers take care of the ride. Book your trip now and let's
+                  get you there!
+                </p>
+                <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-400 lg:my-8" />
+                <div className="flex mt-6 place-content-evenly">
+                  <div>
+                    <MdEmojiTransportation size="48px" color="#e74c3c" />
+                  </div>
+                  <div>
+                    <HiOutlineRocketLaunch size="48px" color="#3498db" />
+                  </div>
+                  <div>
+                    <MdTrain size="48px" color="#2ecc71" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             ref={parent}
