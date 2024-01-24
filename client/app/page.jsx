@@ -130,8 +130,8 @@ const BookingPage = () => {
               <div>
                 <p className="font-sans text-3xl italic font-semibold text-blue-900 dark:text-gray-200">
                   Ready for some stress-free commuting? Hop in and let our
-                  drivers take care of the ride. Book your trip now and let's
-                  get you there!
+                  drivers take care of the ride. Book your trip now and
+                  let`&apos;`s get you there!
                 </p>
                 <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-400 lg:my-8" />
                 <div className="flex mt-6 place-content-evenly">
