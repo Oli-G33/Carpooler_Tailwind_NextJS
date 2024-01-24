@@ -112,7 +112,7 @@ const BookingPage = () => {
           <div className="gap-8 md:grid">
             <div className="flex flex-col items-center justify-center p-8 text-center bg-white shadow-lg dark:bg-gray-600 md:h-64 rounded-xl">
               {/* Date Picker (Takes half width on md screens and above) */}
-              <h2 className="mb-6 font-sans text-xl font-semibold text-blue-900 dark:text-gray-100 ">
+              <h2 className="mb-6 font-sans text-3xl font-semibold text-blue-900 dark:text-gray-100 ">
                 Choose a Date
               </h2>
               <DatePicker
@@ -128,7 +128,7 @@ const BookingPage = () => {
             </div>
             <div className="justify-center hidden p-8 bg-white shadow-lg md:flex dark:bg-gray-600 rounded-xl">
               <div>
-                <p className="font-sans text-3xl italic font-semibold text-blue-900 dark:text-gray-200">
+                <p className="font-sans text-2xl italic font-semibold text-blue-900 dark:text-gray-200">
                   Ready for some stress-free commuting? Hop in and let our
                   drivers take care of the ride. Book your trip now and
                   let&apos;s get you there!
@@ -152,7 +152,7 @@ const BookingPage = () => {
             ref={parent}
             className="max-w-screen-xl mt-4 bg-white shadow-lg md:mt-0 rounded-xl dark:bg-gray-600"
           >
-            <h2 className="p-4 font-sans text-base font-semibold text-center text-blue-900 rounded-xl dark:text-gray-200 md:text-xl">
+            <h2 className="p-4 font-sans text-base font-semibold text-center text-blue-900 rounded-xl dark:text-gray-200 md:text-2xl">
               {selectedDate
                 ? `Search Results for ${formattedDate}`
                 : 'No date selected'}
