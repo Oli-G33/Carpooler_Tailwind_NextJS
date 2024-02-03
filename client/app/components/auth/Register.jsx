@@ -124,31 +124,7 @@ const Register = ({ setIsLogin }) => {
             {step === 1 && (
               <div>
                 <div className="mb-4">
-                  <input
-                    {...register('firstName', {
-                      required: 'First Name Is Required',
-                      minLength: { value: 4, message: 'Min 4 Characters' }
-                    })}
-                  />
-                  <p className="mt-0.5 text-red-500 text-xs">
-                    {errors.firstName?.message}
-                  </p>
-                  <br />
-                  <br />
-                  <input
-                    {...register('lastName', {
-                      required: 'Last Name Is Required',
-                      minLength: { value: 4, message: 'Min 4 Characters' }
-                    })}
-                  />
-                  <p className="mt-0.5 text-red-500 text-xs">
-                    {errors.lastName?.message}
-                  </p>
-                  <br />
-                  <br />
-                  <input type="submit" />
-
-                  {/* <label
+                  <label
                     htmlFor="firstName"
                     className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
                   >
@@ -173,8 +149,8 @@ const Register = ({ setIsLogin }) => {
                     className="block mb-2 text-sm font-bold text-blue-800 dark:text-gray-200"
                   >
                     Last Name
-                  </label> */}
-                  {/* <input
+                  </label>
+                  <input
                     type="text"
                     id="lastName"
                     name="lastName"
@@ -184,14 +160,13 @@ const Register = ({ setIsLogin }) => {
                       required: 'Last Name Is Required',
                       minLength: { value: 4, message: 'Min 4 Characters' }
                     })}
-                  /> */}
-                  {/* <p className="text-sm text-red-500 mt-0.5">
+                  />
+                  <p className="text-sm text-red-500 mt-0.5">
                     {errors.lastName?.message}
-                  </p> */}
+                  </p>
                 </div>
               </div>
             )}
-
             {step === 2 && (
               <div>
                 <div className="mb-4">

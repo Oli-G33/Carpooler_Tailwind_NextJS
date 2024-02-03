@@ -1,5 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
+import styles from './styles.module.css';
 import DatePicker from './components/DatePicker';
 import SearchResult from './components/ui/SearchResult';
 import autoAnimate from '@formkit/auto-animate';
@@ -134,14 +135,14 @@ const BookingPage = () => {
                   let&apos;s get you there!
                 </p>
                 <hr className="my-2 border-gray-200 sm:mx-auto dark:border-gray-400 lg:my-8" />
-                <div className="flex mt-6 place-content-evenly">
-                  <div>
+                <div className="flex items-center place-content-evenly">
+                  <div className="hover:animate-bounce">
                     <MdEmojiTransportation size="48px" color="#e74c3c" />
                   </div>
-                  <div>
+                  <div className="hover:animate-bounce">
                     <HiOutlineRocketLaunch size="48px" color="#3498db" />
                   </div>
-                  <div>
+                  <div className="hover:animate-bounce">
                     <MdTrain size="48px" color="#2ecc71" />
                   </div>
                 </div>
@@ -149,8 +150,8 @@ const BookingPage = () => {
             </div>
           </div>
           <div
-            ref={parent}
-            className="max-w-screen-xl mt-4 bg-white shadow-lg md:mt-0 rounded-xl dark:bg-gray-600"
+            // ref={parent}
+            className="h-64 max-w-screen-xl mt-4 duration-300 ease-in-out bg-white shadow-lg md:mt-0 rounded-xl dark:bg-gray-600 transition-height"
           >
             <h2 className="p-4 font-sans text-base font-semibold text-center text-blue-900 rounded-xl dark:text-gray-200 md:text-2xl">
               {selectedDate
