@@ -9,7 +9,8 @@ const FormContext = createContext({
     LastName: '',
     Email: '',
     PhoneNumber: '',
-    Password: ''
+    Password: '',
+    Picture: ''
   },
   setFormData: () => {}
 });

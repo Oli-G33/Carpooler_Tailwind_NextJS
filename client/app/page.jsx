@@ -15,62 +15,62 @@ const searchResultsData = [
     driverName: 'John Doe',
     driverAvatar: 'https://source.unsplash.com/C8Ta0gwPbQg',
     availableSeats: 3,
-    driverShift: 'Morning Shift'
+    driverShift: 'L1'
   },
   {
     driverName: 'Alice Smith',
     driverAvatar: 'https://source.unsplash.com/mEZ3PoFGs_k',
     availableSeats: 2,
-    driverShift: 'Evening Shift'
+    driverShift: 'E2'
   },
   {
     driverName: 'Bob Johnson',
     driverAvatar: 'https://source.unsplash.com/jzz_3jWMzHA',
     availableSeats: 4,
-    driverShift: 'Afternoon Shift'
+    driverShift: 'E2'
   },
   {
     driverName: 'Emma Davis',
     driverAvatar: 'https://source.unsplash.com/Rm83bxp19RE',
     availableSeats: 1,
-    driverShift: 'Night Shift'
+    driverShift: 'L1'
   },
   {
     driverName: 'Michael Brown',
     driverAvatar: 'https://source.unsplash.com/rDEOVtE7vOs',
     availableSeats: 2,
-    driverShift: 'Morning Shift'
+    driverShift: 'E2'
   },
   {
     driverName: 'Sophia Wilson',
     driverAvatar:
       'https://source.unsplash.com/a-woman-standing-in-front-of-a-window-with-her-arms-crossed-caOuGgyfu8s',
     availableSeats: 3,
-    driverShift: 'Evening Shift'
+    driverShift: 'E2'
   },
   {
     driverName: 'William White',
     driverAvatar: 'https://source.unsplash.com/iFgRcqHznqg',
     availableSeats: 4,
-    driverShift: 'Afternoon Shift'
+    driverShift: 'L1'
   },
   {
     driverName: 'Olivia Lee',
     driverAvatar: 'https://source.unsplash.com/tTdC88_6a_I',
     availableSeats: 1,
-    driverShift: 'Night Shift'
+    driverShift: 'E2'
   },
   {
     driverName: 'James Taylor',
     driverAvatar: 'https://source.unsplash.com/QEgHL8NN7nM',
     availableSeats: 2,
-    driverShift: 'Morning Shift'
+    driverShift: 'L1'
   },
   {
     driverName: 'Mia Martin',
     driverAvatar: 'https://source.unsplash.com/NVRdBAwV2Qo',
     availableSeats: 3,
-    driverShift: 'Evening Shift'
+    driverShift: 'E1'
   }
 ];
 
@@ -107,9 +107,9 @@ const BookingPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen pb-6 mt-16 bg-gray-100 dark:bg-gray-800">
+    <div className="flex flex-col items-center justify-center min-h-screen pb-6 bg-gray-100 dark:bg-gray-800">
       <main className="container flex-grow p-4 mx-auto mt-8 mb-0">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-8 lg:gap-16 xl:gap-20 md:grid-cols-2">
           <div className="gap-8 md:grid">
             <div className="flex flex-col items-center justify-center p-8 text-center bg-white shadow-lg dark:bg-gray-600 md:h-64 rounded-xl">
               {/* Date Picker (Takes half width on md screens and above) */}

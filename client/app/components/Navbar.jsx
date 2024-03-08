@@ -25,7 +25,10 @@ export default function Navbar() {
   };
 
   const toggleShowTopbarMenu = () => {
-    setShowTopbarMenu(!showTopbarMenu);
+    setShowTopbarMenu(prev => !prev);
+    setTopbarMenuAnimation(prev =>
+      prev === 'scale-in-ver-top' ? 'scale-out-ver-top' : 'scale-in-ver-top'
+    );
   };
 
   const closeTopbarMenu = () => {
@@ -70,7 +73,7 @@ export default function Navbar() {
   return (
     <div>
       <nav
-        className={`fixed top-0 z-20 w-full border-b shadow-md ${
+        className={`top-0 z-20 w-full border-b shadow-md ${
           theme === 'dark'
             ? 'bg-gray-900 border-gray-700'
             : 'bg-white border-gray-200'
@@ -99,7 +102,7 @@ export default function Navbar() {
             {user && (
               <button
                 type="button"
-                className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                className="flex mr-3 text-sm bg-gray-800 rounded-full z-90 md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                 id="user-menu-button"
                 aria-expanded={showUserMenu ? 'true' : 'false'}
                 data-dropdown-toggle="user-dropdown"
@@ -111,7 +114,7 @@ export default function Navbar() {
                 <span className="sr-only">Open user menu</span>
 
                 <Image
-                  className="w-10 h-10 rounded-full ring-4 ring-gray-200 hover:ring-blue-200 dark:hover:ring-gray-800"
+                  className="w-10 h-10 rounded-full ring-4 ring-gray-200 hover:ring-blue-200 dark:hover:ring-blue-500"
                   src={user.picture}
                   alt="user avatar"
                   fill
@@ -130,7 +133,7 @@ export default function Navbar() {
                     initial={{ opacity: 0, height: 200 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 200 }}
-                    transition={{ duration: 0.1 }}
+                    transition={{ duration: 0.2 }}
                     className="absolute my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow mt-60 right-2 dark:bg-gray-700 dark:divide-gray-600"
                     id="user-dropdown"
                     style={{ zIndex: 999 }}
@@ -232,13 +235,19 @@ export default function Navbar() {
           {showTopbarMenu && (
             <div
               ref={topbarMenuRef}
-              className={`${topbarMenuAnimation} absolute left-0 w-full text-base list-none bg-white shadow top-full md:hidden dark:bg-gray-700 dark:divide-gray-600`}
+              className={`${
+                topbarMenuAnimation ? 'scale-in-ver-top' : 'scale-out-ver-top'
+              } fixed left-0 w-full text-base list-none bg-white shadow md:hidden dark:bg-gray-700 dark:divide-gray-600`}
+              style={{
+                top: 'calc(100% - 1px)', // Adjust the top position to be right below the navbar
+                zIndex: 999 // Ensure the menu is above other elements
+              }}
             >
               <ul className="flex flex-col p-4 font-medium bg-white border border-gray-100 rounded-lg md:p-0 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-700 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
                   <a
                     href="/"
-                    className="block py-2 pl-3 pr-4 text-black rounded dark:text-gray-200 focus:text-red-600 focus:bg-blue-100 md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                    className="block py-2 pl-3 pr-4 text-black rounded dark:text-gray-200 focus:text-red-600 focus:bg-blue-100 md:bg-transparent md:p-0"
                     aria-current="page"
                   >
                     Book
@@ -288,7 +297,7 @@ export default function Navbar() {
               <li>
                 <a
                   href="/"
-                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                  className="block py-2 pl-3 pr-4 text-gray-900 bg-blue-700 rounded dark:text-white md:bg-transparent md:p-0 md:hover:text-blue-700"
                   aria-current="page"
                 >
                   Book

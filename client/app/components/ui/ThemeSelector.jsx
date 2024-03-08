@@ -7,10 +7,9 @@ const ThemeSelector = () => {
 
   useEffect(() => {
     setMounted(true);
-
-    // if (!theme) {
-    //   setTheme('dark');
-    // }
+    if (!theme) {
+      setTheme('dark');
+    }
   }, []);
 
   const toggleTheme = () => {
@@ -31,7 +30,7 @@ const ThemeSelector = () => {
             viewBox="0 0 24 18"
             strokeWidth="1.5"
             stroke="white"
-            className="w-8 h-8"
+            className="w-8 h-8 transition-transform transform hover:scale-150"
           >
             <path
               strokeLinecap="round"
@@ -46,7 +45,7 @@ const ThemeSelector = () => {
             viewBox="0 0 24 20"
             strokeWidth="1.5"
             stroke="#1e3a8c"
-            className="w-8 h-8"
+            className="w-8 h-8 transition-transform transform hover:scale-150"
           >
             <path
               strokeLinecap="round"

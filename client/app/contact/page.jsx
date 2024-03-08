@@ -3,7 +3,6 @@ import { useTheme } from '../state/ThemeContext';
 
 const page = () => {
   return (
-    // <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-800 ">
     <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-800 ">
       <div>
         <h1>Contact</h1>

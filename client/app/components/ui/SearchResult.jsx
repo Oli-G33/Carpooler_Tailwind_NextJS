@@ -27,7 +27,7 @@ const SearchResult = ({
         <Image
           src={driverAvatar}
           alt={`${driverName}'s Avatar`}
-          className="w-10 h-10 border rounded-full ring-2 md:w-14 md:h-14"
+          className="z-0 w-10 h-10 border rounded-full ring-2 md:w-14 md:h-14"
           fill
           sizes="(max-width: 640px) 50px, (max-width: 768px) 100px, 200px"
           style={{
@@ -47,7 +47,7 @@ const SearchResult = ({
       </div>
       <button
         onClick={handleRequest}
-        className="px-4 text-white duration-150 bg-blue-500 rounded-full w-14 md:py-0 md:px-0 md:mt-0 md:w-18 lg:w-24 hover:bg-blue-800"
+        className="text-white duration-150 bg-blue-500 rounded-full w-14 md:p-0 md:mt-0 md:w-18 lg:w-24 hover:bg-blue-800"
       >
         <span className="text-xs lg:text-base">Book</span>
       </button>
