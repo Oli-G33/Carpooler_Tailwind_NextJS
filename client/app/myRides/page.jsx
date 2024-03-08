@@ -1,40 +1,15 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import { Avatar } from '@nextui-org/avatar';
 import { Pagination } from '@nextui-org/pagination';
 import { Tabs, Tab } from '@nextui-org/react';
 
 const index = () => {
-  const tabs = ['confirmed', 'pending'];
-  const [activeTab, setActiveTab] = useState(tabs[0]);
-
-  const handleTabClick = tab => {
-    setActiveTab(tab);
-  };
-  console.log(activeTab);
-
-  const colors = ['primary', 'secondary', 'success', 'warning', 'danger'];
-
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-100 dark:bg-gray-800">
       <div className="flex w-auto">
         {/*Tab Selector */}
         <nav className="flex my-8 ">
-          {/* {tabs.map(tab => (
-            <button
-              key={tab}
-              onClick={() => handleTabClick(tab)}
-              className={` text-xs md:text-lg w-auto
-                 transition duration-1000 px-4 py-2 ${
-                   activeTab === tab
-                     ? 'bg-blue-700 text-white'
-                     : 'bg-gray-300 text-gray-600'
-                 }`}
-            >
-              {`${tab.charAt(0).toUpperCase()}${tab.slice(1)} Rides`}
-            </button>
-          ))} */}
-
           <Tabs color="primary" aria-label="Tabs colors" radius="md">
             <Tab title="Confirmed Rides" />
             <Tab title="Pending Rides" />
