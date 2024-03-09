@@ -17,6 +17,7 @@ import DarkModeToggle from './DarkModeToggle.jsx';
 import { useUser } from '@/app/state/UserContext.js';
 import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image.js';
 
 const Navbar2 = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -25,20 +26,7 @@ const Navbar2 = () => {
   const { theme } = useTheme();
   const pathname = usePathname();
 
-  console.log(user);
-
-  const menuItems = [
-    'Profile',
-    'Dashboard',
-    'Activity',
-    'Analytics',
-    'System',
-    'Deployments',
-    'My Settings',
-    'Team Settings',
-    'Help & Feedback',
-    'Log Out'
-  ];
+  console.log(pathname);
 
   return (
     <Navbar
@@ -68,8 +56,20 @@ const Navbar2 = () => {
       }}
     >
       <NavbarBrand>
-        <AcmeLogo />
-        <p className="font-bold text-inherit">Carpooler™</p>
+        <Image
+          src="https://flowbite.com/docs/images/logo.svg"
+          className="h-8 mr-3"
+          alt="Flowbite Logo"
+          width={50}
+          height={50}
+        />
+        <span
+          className={`self-center text-2xl font-semibold ${
+            theme === 'dark' ? 'text-white' : 'text-blue-900'
+          }  whitespace-nowrap `}
+        >
+          Carpooler™
+        </span>
       </NavbarBrand>
 
       <NavbarContent className="hidden gap-4 sm:flex" justify="center">
@@ -117,7 +117,11 @@ const Navbar2 = () => {
             </DropdownTrigger>
           )}
           <DropdownMenu aria-label="Profile Actions" variant="flat">
-            <DropdownItem key="profile" className="gap-2 h-14">
+            <DropdownItem
+              key="profile"
+              textValue="Avatar"
+              className="gap-2 h-14"
+            >
               {user && (
                 <>
                   {' '}
@@ -128,15 +132,25 @@ const Navbar2 = () => {
                 </>
               )}
             </DropdownItem>
-            <DropdownItem key="settings">Book</DropdownItem>
+            <DropdownItem key="book" textValue="Book">
+              Book
+            </DropdownItem>
             {/* {user &&
               user.isAdmin( */}
-            <DropdownItem key="team_settings">Dashboard</DropdownItem>
+            <DropdownItem key="dashboard" textValue="dashboard">
+              Dashboard
+            </DropdownItem>
             {/* )}*/}
-            <DropdownItem key="analytics">My Rides</DropdownItem>
-            <DropdownItem key="system">Terms</DropdownItem>
-            <DropdownItem key="Contact">Contact</DropdownItem>
-            <DropdownItem key="logout" color="danger">
+            <DropdownItem key="MyRides" textValue="MyRides">
+              My Rides
+            </DropdownItem>
+            <DropdownItem key="Terms" textValue="Terms">
+              Terms
+            </DropdownItem>
+            <DropdownItem key="Contact" textValue="Contact">
+              Contact
+            </DropdownItem>
+            <DropdownItem key="Logout" textValue="Logout" color="danger">
               Log Out
             </DropdownItem>
           </DropdownMenu>

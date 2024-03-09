@@ -1,5 +1,6 @@
 'use client';
 import { useTheme } from 'next-themes';
+import Image from 'next/image';
 import { FaGithub, FaLinkedin, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
 
 const currentYear = new Date().getFullYear();
@@ -15,10 +16,12 @@ const Copyright = () => {
               href="/"
               className="flex items-center mb-4 space-x-3 sm:mb-0 rtl:space-x-reverse"
             >
-              <img
+              <Image
                 src="https://flowbite.com/docs/images/logo.svg"
-                className="h-6"
+                className="h-10"
                 alt="Flowbite Logo"
+                width={50}
+                height={50}
               />
               <span className="self-center text-xl font-semibold text-blue-900 whitespace-nowrap dark:text-white">
                 Carpooler™
