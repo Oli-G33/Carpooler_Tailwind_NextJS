@@ -95,7 +95,7 @@ const Navbar2 = () => {
         </NavbarItem>
         <NavbarItem isActive={pathname == '/contact'}>
           <Link color="foreground" href="/contact">
-            Contact
+            <span className="text-base">Contact</span>
           </Link>
         </NavbarItem>
       </NavbarContent>
