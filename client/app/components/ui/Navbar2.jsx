@@ -64,7 +64,7 @@ const Navbar2 = () => {
           height={50}
         />
         <span
-          className={`self-center text-2xl font-semibold ${
+          className={`self-center text-xl lg:text-2xl mr-5 font-semibold ${
             theme === 'dark' ? 'text-white' : 'text-blue-900'
           }  whitespace-nowrap `}
         >
@@ -133,22 +133,32 @@ const Navbar2 = () => {
               )}
             </DropdownItem>
             <DropdownItem key="book" textValue="Book">
-              Book
+              <Link color="foreground" href="/">
+                Book
+              </Link>
             </DropdownItem>
             {/* {user &&
               user.isAdmin( */}
             <DropdownItem key="dashboard" textValue="dashboard">
-              Dashboard
+              <Link href="dashboard" aria-current="page" color="foreground">
+                Dashboard
+              </Link>
             </DropdownItem>
             {/* )}*/}
             <DropdownItem key="MyRides" textValue="MyRides">
-              My Rides
+              <Link color="foreground" href="/myRides">
+                My Rides
+              </Link>
             </DropdownItem>
             <DropdownItem key="Terms" textValue="Terms">
-              Terms
+              <Link color="foreground" href="/terms">
+                Terms
+              </Link>
             </DropdownItem>
             <DropdownItem key="Contact" textValue="Contact">
-              Contact
+              <Link color="foreground" href="/contact">
+                Contact
+              </Link>
             </DropdownItem>
             <DropdownItem key="Logout" textValue="Logout" color="danger">
               Log Out
